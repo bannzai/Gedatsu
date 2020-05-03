@@ -1,23 +1,27 @@
 import Foundation
 import UIKit
 
-internal typealias InterceptType = (() -> Void)
 internal class Gedatsu {
+    internal typealias InterceptType = (() -> Void)
+    internal typealias Pipe = (reader: Reader, writer: Writer)
+
     private let lock = NSLock()
     internal var interceptQueue: [InterceptType] = []
-    
-    internal let reader: Reader
-    internal let writer: Writer
-    internal init(reader: Reader, writer: Writer) {
-        self.reader = reader
-        self.writer = writer
+
+    internal let standardOutput: Pipe
+    internal let standardError: Pipe
+    internal init(standardOutput: Pipe, standardError: Pipe) {
+        self.standardOutput = standardOutput
+        self.standardError = standardError
     }
     
     internal func open() {
-        _ = dup2(FileHandle.standardError.fileDescriptor, writer.fileDescriptor)
-        _ = dup2(reader.fileDescriptor, FileHandle.standardError.fileDescriptor)
-        
-        reader.read { [weak self] content in
+        _ = dup2(FileHandle.standardOutput.fileDescriptor, standardOutput.writer.fileDescriptor)
+        _ = dup2(FileHandle.standardError.fileDescriptor, standardError.writer.fileDescriptor)
+        _ = dup2(standardOutput.reader.fileDescriptor, FileHandle.standardOutput.fileDescriptor)
+        _ = dup2(standardError.reader.fileDescriptor, FileHandle.standardError.fileDescriptor)
+
+        standardError.reader.read { [weak self] content in
             self?.lock.lock()
             defer { self?.lock.unlock() }
             guard let self = self else {
@@ -25,11 +29,15 @@ internal class Gedatsu {
             }
             switch (self.interceptQueue.isEmpty, Thread.isMainThread) {
             case (true, _), (_, false):
-                self.writer.write(content: content)
+                self.standardError.writer.write(content: content)
             case (false, true):
                 let closure = self.interceptQueue.removeFirst()
                 closure()
             }
+        }
+        
+        standardOutput.reader.read { [weak self] (content) in
+            self?.standardOutput.writer.write(content: content)
         }
         UIView.swizzle()
     }
@@ -41,7 +49,10 @@ public func open() {
     if shared != nil {
         close()
     }
-    shared = Gedatsu(reader: ReaderImpl(), writer: WriterImpl())
+    shared = Gedatsu.init(
+        standardOutput: (reader: ReaderImpl(), writer: WriterImpl()),
+        standardError: (reader: ReaderImpl(), writer: WriterImpl())
+    )
     shared?.open()
 }
 
