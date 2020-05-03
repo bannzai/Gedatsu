@@ -1,13 +1,13 @@
 import Foundation
 
 internal protocol Writer: PipeType {
-    func write(data: Data)
+    func write(content: String)
 }
 
-internal struct WriterImpl: Writer {
+internal class WriterImpl: Writer {
     let pipe = Pipe()
     var fileDescriptor: Int32 { pipe.fileHandleForWriting.fileDescriptor }
-    func write(data: Data) {
-        pipe.fileHandleForWriting.write(data)
+    func write(content: String) {
+        content.data(using: .utf8).map(pipe.fileHandleForWriting.write(_:))
     }
 }
