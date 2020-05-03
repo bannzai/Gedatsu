@@ -46,16 +46,9 @@ internal class Gedatsu {
 internal var shared: Gedatsu?
 
 public func open() {
-    if shared != nil {
-        close()
-    }
     shared = Gedatsu.init(
         standardOutput: (reader: ReaderImpl(), writer: WriterImpl()),
         standardError: (reader: ReaderImpl(), writer: WriterImpl())
     )
     shared?.open()
-}
-
-public func close() {
-    shared = nil
 }
