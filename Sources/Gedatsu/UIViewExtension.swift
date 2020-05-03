@@ -28,7 +28,3 @@ extension UIView {
         }
     }
 }
-
-internal func format(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) -> String {
-    return "abbbb"
-}
