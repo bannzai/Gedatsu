@@ -3,8 +3,8 @@ import UIKit
 
 internal typealias InterceptType = (() -> Void)
 internal class Gedatsu {
-    internal let lock = NSLock()
-    internal var intercept: InterceptType?
+    private let lock = NSLock()
+    internal var interceptQueue: [InterceptType] = []
     
     internal let reader: Reader
     internal let writer: Writer
@@ -17,24 +17,20 @@ internal class Gedatsu {
         _ = dup2(FileHandle.standardError.fileDescriptor, writer.fileDescriptor)
         _ = dup2(reader.fileDescriptor, FileHandle.standardError.fileDescriptor)
         
-        reader.watch { [weak self] in
+        reader.read { [weak self] content in
             self?.lock.lock()
-            defer {
-                self?.reader.wait()
-                self?.lock.unlock()
-            }
-            // NOTE: engine:willBreakConstraint:dueToMutuallyExclusiveConstraints: call -> intercept = nil -> _engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:(print)
-            if let keepIntercept = self?.intercept {
-                self?.intercept = nil
-                keepIntercept()
+            defer { self?.lock.unlock() }
+            guard let self = self else {
                 return
             }
-            guard let data = self?.reader.read() else {
-                return
+            switch (self.interceptQueue.isEmpty, Thread.isMainThread) {
+            case (true, _), (_, false):
+                self.writer.write(content: content)
+            case (false, true):
+                let closure = self.interceptQueue.removeFirst()
+                closure()
             }
-            self?.writer.write(data: data)
         }
-        reader.wait()
         UIView.swizzle()
     }
 }
@@ -47,10 +43,6 @@ public func open() {
     }
     shared = Gedatsu(reader: ReaderImpl(), writer: WriterImpl())
     shared?.open()
-}
-
-internal func intercept(closure: @escaping InterceptType) {
-    shared?.intercept = closure
 }
 
 public func close() {
