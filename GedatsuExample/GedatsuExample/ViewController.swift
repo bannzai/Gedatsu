@@ -12,9 +12,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let subview = UIView()
+        NSLayoutConstraint.activate([
+            subview.widthAnchor.constraint(equalToConstant: 100),
+            subview.widthAnchor.constraint(equalToConstant: 10),
+        ])
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        subview.layoutIfNeeded()
+        
+        print("aaaaa")
     }
-
-
 }
 
