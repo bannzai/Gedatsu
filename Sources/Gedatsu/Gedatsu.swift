@@ -3,24 +3,25 @@ import UIKit
 
 internal typealias InterceptType = (() -> Void)
 internal class Gedatsu {
-    internal let input = Pipe()
-    internal let output = Pipe()
-    
     internal let lock = NSLock()
     internal var intercept: InterceptType?
     
+    internal let reader: Reader
+    internal let writer: Writer
+    internal init(reader: Reader, writer: Writer) {
+        self.reader = reader
+        self.writer = writer
+    }
+    
     internal func open() {
-        _ = dup2(FileHandle.standardError.fileDescriptor, output.fileHandleForWriting.fileDescriptor)
-        _ = dup2(input.fileHandleForWriting.fileDescriptor, FileHandle.standardError.fileDescriptor)
+        _ = dup2(FileHandle.standardError.fileDescriptor, writer.fileDescriptor)
+        _ = dup2(reader.fileDescriptor, FileHandle.standardError.fileDescriptor)
         
-        input.fileHandleForReading.readabilityHandler = { [weak self] fileHandle in
+        reader.watch { [weak self] in
             self?.lock.lock()
             defer {
-                self?.input.fileHandleForReading.readInBackgroundAndNotify()
+                self?.reader.wait()
                 self?.lock.unlock()
-            }
-            guard let data = self?.input.fileHandleForReading.availableData else {
-                return
             }
             // NOTE: engine:willBreakConstraint:dueToMutuallyExclusiveConstraints: call -> intercept = nil -> _engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:(print)
             if let keepIntercept = self?.intercept {
@@ -28,9 +29,12 @@ internal class Gedatsu {
                 keepIntercept()
                 return
             }
-            self?.output.fileHandleForWriting.write(data)
+            guard let data = self?.reader.read() else {
+                return
+            }
+            self?.writer.write(data: data)
         }
-        input.fileHandleForReading.readInBackgroundAndNotify()
+        reader.wait()
         UIView.swizzle()
     }
 }
@@ -41,7 +45,7 @@ public func open() {
     if shared != nil {
         close()
     }
-    shared = Gedatsu()
+    shared = Gedatsu(reader: ReaderImpl(), writer: WriterImpl())
     shared?.open()
 }
 
