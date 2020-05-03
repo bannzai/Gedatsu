@@ -1,26 +1,27 @@
 import Foundation
 
 internal protocol Reader: PipeType {
-    func wait()
-    func watch(closure: @escaping () -> Void)
-    func read() -> Data
+    func read(closure: @escaping (String) -> Void)
 }
 
-internal struct ReaderImpl: Reader {
+internal class ReaderImpl: Reader {
     let pipe: Pipe = Pipe()
     var fileDescriptor: Int32 { pipe.fileHandleForWriting.fileDescriptor }
     
     func wait() {
         pipe.fileHandleForReading.readInBackgroundAndNotify()
     }
-    func watch(closure: @escaping () -> Void) {
-        pipe.fileHandleForReading.readabilityHandler = { _ in
-            closure()
+    func read(closure: @escaping (String) -> Void) {
+        NotificationCenter.default.addObserver(
+            forName: FileHandle.readCompletionNotification,
+            object: pipe.fileHandleForReading,
+            queue: nil
+        ) { [weak self] (notification) in
+                self?.wait()
+                if let data = notification.userInfo?[NSFileHandleNotificationDataItem] as? Data, let content = String(data: data, encoding: .utf8) {
+                    closure(content)
+                }
         }
         wait()
-    }
-    
-    func read() -> Data {
-       pipe.fileHandleForReading.availableData
     }
 }
