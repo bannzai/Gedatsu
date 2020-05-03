@@ -6,14 +6,16 @@ extension UIView {
         guard let from = class_getInstanceMethod(UIView.classForCoder(), NSSelectorFromString("engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")) else {
             fatalError("Could not get instance method for UIView.engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")
         }
-        guard let to = class_getInstanceMethod(UIView.classForCoder(), #selector(UIView._engine(view:constraint:exclusiveConstraints:))) else {
-            fatalError("Could not get instance method for UIView.\(#selector(UIView._engine(view:constraint:exclusiveConstraints:)))")
+        guard let to = class_getInstanceMethod(UIView.classForCoder(), #selector(UIView._engine(engine:constraint:exclusiveConstraints:))) else {
+            fatalError("Could not get instance method for UIView.\(#selector(UIView._engine(engine:constraint:exclusiveConstraints:)))")
         }
         method_exchangeImplementations(from, to)
     }
-    @objc internal func _engine(view: UIView, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+    @objc internal func _engine(engine: AnyObject, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+        assert(Thread.isMainThread)
+        assert(NSClassFromString("NSISEngine") == engine.classForCoder, "Unexpected receive argument for NSEngine")
         defer {
-            _engine(view: view, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
+            _engine(engine: engine, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         }
         guard let isLoggingSuspend = value(forKey: "_isUnsatisfiableConstraintsLoggingSuspended") as? Bool else {
             fatalError("Could not get value for _isUnsatisfiableConstraintsLoggingSuspended")
@@ -21,13 +23,12 @@ extension UIView {
         if isLoggingSuspend {
             return
         }
-        shared?.intercept = { [weak self] in
-            if let format = self?.format(view: view, constraint: constraint, exclusiveConstraints: exclusiveConstraints) {
-                print(format)
-            }
+        shared?.interceptQueue.append {
+            print(format(constraint: constraint, exclusiveConstraints: exclusiveConstraints))
         }
     }
-    internal func format(view: UIView, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) -> String {
-        return "abbbb"
-    }
+}
+
+internal func format(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) -> String {
+    return "abbbb"
 }
