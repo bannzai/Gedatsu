@@ -39,7 +39,6 @@ internal class Gedatsu {
         standardOutput.reader.read { [weak self] (content) in
             self?.standardOutput.writer.write(content: content)
         }
-        UIView.swizzle()
     }
 }
 
@@ -49,9 +48,10 @@ public func open() {
     if shared != nil {
         return
     }
-    shared = Gedatsu.init(
+    shared = Gedatsu(
         standardOutput: (reader: ReaderImpl(), writer: WriterImpl()),
         standardError: (reader: ReaderImpl(), writer: WriterImpl())
     )
+    UIView.swizzle()
     shared?.open()
 }
