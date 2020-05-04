@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Gedatsu
 
 class CustomView: UIView { }
 
@@ -33,31 +34,21 @@ class ViewController: UIViewController {
     }
     
     func printConstraint() {
-        print("view: ----")
-        func _print(constraint: NSLayoutConstraint) {
-            assert(constraint.firstItem != nil)
-            print("  ", "constant: ", constraint.constant)
-            print("  ", "firstItem: ", String(describing: constraint.firstItem))
-            print("  ", "firstItem.frame: ", String(describing: constraint.firstItem?.frame))
-            print("  ", "firstAttribute: ", constraint.firstAttribute.rawValue)
-            print("  ", "secondItem: ", String(describing: constraint.secondItem))
-            print("  ", "secondItem.frame: ", String(describing: constraint.secondItem?.frame))
-            print("  ", "secondAttribute: ", constraint.secondAttribute.rawValue)
-        }
-        view.constraints.enumerated().forEach {
-            print("\($0.0) --- ")
-            _print(constraint: $0.1)
-        }
-        print("customView: ----")
-        customView.constraints.enumerated().forEach {
-            print("\($0): ---")
-            _print(constraint: $1)
-        }
-        print("stackView: ----")
-        stackView.constraints.enumerated().forEach {
-            print("\($0.0) --- ")
-            _print(constraint: $0.1)
-        }
+//        print("view: ----")
+//        view.constraints.enumerated().forEach {
+//            print("\($0.0) --- ")
+//            _print(constraint: $0.1)
+//        }
+//        print("customView: ----")
+//        customView.constraints.enumerated().forEach {
+//            print("\($0): ---")
+//            _print(constraint: $1)
+//        }
+//        print("stackView: ----")
+//        stackView.constraints.enumerated().forEach {
+//            print("\($0.0) --- ")
+//            _print(constraint: $0.1)
+//        }
     }
 }
 
