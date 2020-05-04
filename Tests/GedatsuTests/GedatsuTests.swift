@@ -1,15 +1,13 @@
 import XCTest
-@testable import Gedatsu
+//@testable import Gedatsu
 
 final class GedatsuTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Gedatsu().text, "Hello, World!")
+    
+    func testPipe() {
+//        let gedatsu = Gedatsu()
+//        gedatsu.input.fileHandleForReading.readabilityHandler = { [weak gedatsu] fileHandle in
+//            fileHandle.readInBackgroundAndNotify()
+//            String.init(data: fileHandle.availableData, encoding: .utf8)
+//        }
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }
