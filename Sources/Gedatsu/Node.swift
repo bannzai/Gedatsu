@@ -20,7 +20,6 @@ class Node {
     
     fileprivate func addChild(_ node: Node) {
         let hasChild = children.contains { $0.responder === node.responder }
-        assert(!hasChild)
         if hasChild {
             return
         }

@@ -87,9 +87,7 @@ private func buildTreeContent(tree: [Node]) -> String {
     return content
 }
 
-internal func format(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) -> String {
-    let context = Context()
-    context.buildTree(constraint: constraint, exclusiveConstraints: exclusiveConstraints)
+internal func format(context: Context) -> String {
     return buildTreeContent(tree: context.tree)
 }
 

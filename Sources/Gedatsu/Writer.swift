@@ -1,13 +1,18 @@
 import Foundation
 
-internal protocol Writer: PipeType {
-    func write(content: String)
+internal protocol Writer {
+    func write(content: Data)
+    var writingFileDescriptor: Int32 { get }
 }
 
 internal class WriterImpl: Writer {
     let pipe = Pipe()
-    var fileDescriptor: Int32 { pipe.fileHandleForWriting.fileDescriptor }
-    func write(content: String) {
-        content.data(using: .utf8).map(pipe.fileHandleForWriting.write(_:))
+    var writingFileDescriptor: Int32 { pipe.fileHandleForWriting.fileDescriptor }
+    func write(content: Data) {
+        var data = content
+        let length = data.count
+        _ = withUnsafePointer(to: &data) { (pointer) in
+            Darwin.write(writingFileDescriptor, pointer, length)
+        }
     }
 }

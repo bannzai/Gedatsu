@@ -23,8 +23,10 @@ extension UIView {
         if isLoggingSuspend {
             return
         }
+        let context = Context()
+        context.buildTree(constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         shared?.interceptQueue.append {
-            print(format(constraint: constraint, exclusiveConstraints: exclusiveConstraints))
+            print(format(context: context))
         }
     }
 }
