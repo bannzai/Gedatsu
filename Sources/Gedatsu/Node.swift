@@ -11,7 +11,7 @@ class Node {
         self.responder = responder
     }
     init?(anyObject: AnyObject?, constraint: NSLayoutConstraint) {
-        guard let layout = anyObject as? Layoutable, let responder = layout.view() else {
+        guard let view = anyObject as? View, let responder = view.view() else {
             return nil
         }
         self.responder = responder
