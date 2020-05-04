@@ -5,20 +5,20 @@ class Node {
     weak var parent: Node?
     var responder: UIResponder
     var children: [Node] = []
-    var ambigiouses: [NSLayoutConstraint] = []
+    var attributes: [NSLayoutConstraint.Attribute] = []
     
     init(responder: UIResponder) {
         self.responder = responder
     }
-    init?(anyObject: AnyObject?, constraint: NSLayoutConstraint) {
+    init?(anyObject: AnyObject?, attribute: NSLayoutConstraint.Attribute) {
         guard let view = anyObject as? View, let responder = view.view() else {
             return nil
         }
         self.responder = responder
-        self.ambigiouses = [constraint]
+        self.attributes = [attribute]
     }
     
-    func addChild(_ node: Node) {
+    fileprivate func addChild(_ node: Node) {
         let hasChild = children.contains { $0.responder === node.responder }
         assert(!hasChild)
         if hasChild {
@@ -26,13 +26,16 @@ class Node {
         }
         children.append(node)
     }
+    fileprivate func inherit(from node: Node) {
+        attributes.append(contentsOf: node.attributes)
+    }
 }
 
 class Context {
-    var graph: [Node] = []
+    var tree: [Node] = []
     var latestNode: Node?
     
-    func ancestors(from node: Node, to latestNode: Node?) -> [Node] {
+    private func ancestors(from node: Node, to latestNode: Node?) -> [Node] {
         var current: Node? = node
         var ancestors: [Node] = []
         while let next = current?.responder.next {
@@ -50,7 +53,7 @@ class Context {
     }
     func buildTree(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
         let ambigiousConstraintNodes = exclusiveConstraints
-            .flatMap { [Node.init(anyObject: $0.firstItem, constraint: $0), Node.init(anyObject: $0.secondItem, constraint: $0)] }
+            .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }
         
         var mergedNodes: [Node] = []
@@ -59,7 +62,7 @@ class Context {
             case nil:
                 mergedNodes.append(node)
             case let mergedNode?:
-                mergedNode.ambigiouses.append(contentsOf: node.ambigiouses)
+                mergedNode.inherit(from: node)
             }
         }
         
@@ -73,7 +76,6 @@ class Context {
             latestNode = node
         }
         
-        graph = ancestors
+        tree = ancestors
     }
 }
-
