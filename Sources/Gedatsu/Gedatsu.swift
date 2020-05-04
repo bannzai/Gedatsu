@@ -16,13 +16,19 @@ internal class Gedatsu {
     }
     
     internal func open() {
-        _ = dup2(FileHandle.standardError.fileDescriptor, writer.writingFileDescriptor)
-        _ = dup2(reader.writingFileDescriptor, STDERR_FILENO)
-        source = DispatchSource.makeReadSource(fileDescriptor: reader.readingFileDescriptor, queue: nil)
+        let input = Pipe()
+        let output = Pipe()
+        _ = dup2(FileHandle.standardError.fileDescriptor, output.fileHandleForWriting.fileDescriptor)
+        _ = dup2(input.fileHandleForWriting.fileDescriptor, STDERR_FILENO)
+        source = DispatchSource.makeReadSource(fileDescriptor: input.fileHandleForReading.fileDescriptor, queue: nil)
         source.setEventHandler {
+            var data = input.fileHandleForReading.availableData
+            let length = data.count
             switch self.interceptQueue.isEmpty {
             case true:
-                self.writer.write(content: self.reader.read())
+                _ = withUnsafePointer(to: &data) { (pointer) in
+                    write(output.fileHandleForWriting.fileDescriptor, pointer, length)
+                }
             case false:
                 let closure = self.interceptQueue.removeFirst()
                 closure()
