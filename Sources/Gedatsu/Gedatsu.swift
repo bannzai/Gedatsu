@@ -27,11 +27,12 @@ internal class Gedatsu {
             case true:
                 self.writer.write(content: data)
             case false:
-                let closure = self.interceptQueue.removeFirst()
-                closure()
+                DispatchQueue.main.async {
+                    let closure = self.interceptQueue.removeFirst()
+                    closure()
+                    print("self.interceptQueue.count: \(self.interceptQueue.count)")
+                }
             }
-            
-            print("self.interceptQueue.count: \(self.interceptQueue.count)")
         }
         source.resume()
 //        reader.read { [weak self] content in
