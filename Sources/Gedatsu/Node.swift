@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-class Node {
-    weak var parent: Node?
-    var responder: UIResponder
-    var children: [Node] = []
-    var attributes: [NSLayoutConstraint.Attribute] = []
+public class Node {
+    public weak var parent: Node?
+    public var responder: UIResponder
+    public var children: [Node] = []
+    public var attributes: Set<NSLayoutConstraint.Attribute> = []
     
     init(responder: UIResponder) {
         self.responder = responder
@@ -18,6 +18,10 @@ class Node {
         self.attributes = [attribute]
     }
     
+    var hasAmbigious: Bool {
+        !attributes.isEmpty
+    }
+    
     fileprivate func addChild(_ node: Node) {
         let hasChild = children.contains { $0.responder === node.responder }
         if hasChild {
@@ -26,13 +30,24 @@ class Node {
         children.append(node)
     }
     fileprivate func inherit(from node: Node) {
-        attributes.append(contentsOf: node.attributes)
+        node.attributes.forEach {
+            attributes.insert($0)
+        }
     }
 }
 
-class Context {
-    var tree: [Node] = []
-    var latestNode: Node?
+public class Context {
+    public var tree: [Node] = []
+    internal var latestNode: Node?
+    
+    public let view: UIView
+    public let constraint: NSLayoutConstraint
+    public let exclusiveConstraints: [NSLayoutConstraint]
+    public init(view: UIView, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+        self.view = view
+        self.constraint = constraint
+        self.exclusiveConstraints = exclusiveConstraints
+    }
     
     private func ancestors(from node: Node, to latestNode: Node?) -> [Node] {
         var current: Node? = node
@@ -50,7 +65,8 @@ class Context {
         }
         return ancestors.reversed()
     }
-    func buildTree(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+    
+    internal func buildTree(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
         let ambigiousConstraintNodes = exclusiveConstraints
             .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }
@@ -65,16 +81,20 @@ class Context {
             }
         }
         
-        var ancestors: [Node] = []
+        var nodes: [Node] = []
         configureAncestors: for node in mergedNodes {
-            if let ancestor = ancestors.first(where: { $0.responder === node.responder.next }) {
+            if let sameNode = nodes.first(where: { $0.responder === node.responder }) {
+                sameNode.inherit(from: node)
+                continue
+            }
+            if let ancestor = nodes.first(where: { $0.responder === node.responder.next }) {
                 ancestor.addChild(node)
                 continue
             }
-            ancestors = self.ancestors(from: node, to: nil)
+            nodes = ancestors(from: node, to: self.latestNode) + [node]
             latestNode = node
         }
         
-        tree = ancestors
+        tree = nodes
     }
 }
