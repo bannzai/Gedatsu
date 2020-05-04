@@ -16,25 +16,24 @@ internal class Gedatsu {
     }
     
     internal func open() {
-        let input = Pipe()
-        let output = Pipe()
-        _ = dup2(FileHandle.standardError.fileDescriptor, output.fileHandleForWriting.fileDescriptor)
-        _ = dup2(input.fileHandleForWriting.fileDescriptor, STDERR_FILENO)
-        source = DispatchSource.makeReadSource(fileDescriptor: input.fileHandleForReading.fileDescriptor, queue: nil)
+        _ = dup2(FileHandle.standardError.fileDescriptor, writer.writingFileDescriptor)
+        _ = dup2(reader.writingFileDescriptor, STDERR_FILENO)
+        source = DispatchSource.makeReadSource(fileDescriptor: reader.readingFileDescriptor, queue: .init(label: "com.bannzai.gedatsu"))
         source.setEventHandler {
-            var data = input.fileHandleForReading.availableData
-            let length = data.count
+            self.lock.lock()
+            defer { self.lock.unlock() }
+            let data = self.reader.read()
             switch self.interceptQueue.isEmpty {
             case true:
-                _ = withUnsafePointer(to: &data) { (pointer) in
-                    write(output.fileHandleForWriting.fileDescriptor, pointer, length)
-                }
+                self.writer.write(content: data)
             case false:
                 let closure = self.interceptQueue.removeFirst()
                 closure()
             }
+            
+            print("self.interceptQueue.count: \(self.interceptQueue.count)")
         }
-        source.activate()
+        source.resume()
 //        reader.read { [weak self] content in
 //            self?.lock.lock()
 //            defer { self?.lock.unlock() }
