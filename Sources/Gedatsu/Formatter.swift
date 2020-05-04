@@ -7,24 +7,6 @@ public protocol Formatter {
 }
 
 public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
-    private func collectResponder(from responder: UIResponder, to target: UIResponder, responders: inout [UIResponder]) {
-        func collect(from responder: UIResponder, responders: inout [UIResponder]) {
-            guard let next = responder.next else {
-                responders.append(responder)
-                return
-            }
-            if next === target {
-                responders.append(target)
-                return
-            }
-            responders.append(responder)
-            collect(from: responder, responders: &responders)
-        }
-        
-        collect(from: responder, responders: &responders)
-        responders = responders.reversed()
-    }
-    
     public func format(for argument: FormatterArgument) -> String {
         let className = type(of: argument.view)
         let _ = argument.exclusiveConstraints.compactMap { constraint -> [(child: AnyObject, constraint: NSLayoutConstraint)] in
@@ -56,58 +38,63 @@ public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
     }
 }
 
+private func collectResponder(from responder: UIResponder, to target: UIResponder, responders: inout [UIResponder]) {
+    func collect(from responder: UIResponder, responders: inout [UIResponder]) {
+        guard let next = responder.next else {
+            responders.append(responder)
+            return
+        }
+        if next === target {
+            responders.append(target)
+            return
+        }
+        responders.append(responder)
+        collect(from: responder, responders: &responders)
+    }
+    
+    collect(from: responder, responders: &responders)
+    responders = responders.reversed()
+}
 
-enum Line {
-    static let horizontal = "❌"
-    static let vertical = "|"
+private func space(level: Int) -> String {
+    var indent = ""
+    stride(from: 0, through: level, by: 1).forEach { i in
+        indent += " "
+    }
+    return indent
+}
+private func debugContent(responder: UIResponder) -> String {
+    let address = unsafeBitCast(responder, to: Int.self)
+    if let identifier = (responder as? UIView)?.accessibilityIdentifier {
+        return "\(identifier):\(address)"
+    }
+    if let label = responder.accessibilityLabel {
+        return "\(label): \(address)"
+    }
+    return "\(type(of: responder)): \(address)"
+}
+private func buildTreeContent(tree: [Node]) -> String {
+    var content = ""
+    tree.enumerated().forEach { (offset, node) in
+        if offset == 0 {
+            content += "- " + debugContent(responder: node.responder) + "\n"
+            return
+        }
+        node.children.forEach { child in
+            content += space(level: offset) + "|-" + debugContent(responder: child.responder) + "\n"
+        }
+    }
+    return content
 }
 
 internal func format(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) -> String {
-    print("constraint: ----")
-    _print(constraint: constraint)
-    print("exclusiveConstraints: -----")
-    exclusiveConstraints.enumerated().forEach { (offset, constraint) in
-        var _frame: CGRect?
-        switch constraint.firstItem {
-        case let view as UIView:
-            _frame = view.frame
-        case let guide as UILayoutGuide:
-            _frame = guide.owningView?.frame
-        case _:
-            assertionFailure("Unexpected firstItem type \(String(describing: constraint.firstItem))")
-        }
-        guard let frame = _frame else {
-            return
-        }
-        
-        let maxX = Int(frame.maxX / 10)
-        let maxY = Int(frame.maxY / 10)
-        let horizontalLine: [String] = Array(repeating: " ", count: maxX)
-        var matrix: [[String]] = Array(repeating: horizontalLine, count: maxY)
-        stride(from: 0, to: maxY, by: 1).forEach { offset in
-            matrix[offset][0] = Line.vertical
-            matrix[offset][maxX - 1] = Line.vertical
-        }
-        stride(from: 0, to: maxX, by: 1).forEach { offset in
-            matrix[0][offset] = Line.horizontal
-            matrix[maxY - 1][offset] = Line.horizontal
-        }
-        var string = ""
-        for horizontalLine in matrix {
-            for element in horizontalLine {
-                string = "\(string)\(element)"
-            }
-            string = "\(string)\n"
-        }
-
-        print(string)
-//        print("\(offset): --- ")
-//        _print(constraint: constraint)
-    }
-    print("")
-    return "abc"
+    let context = Context()
+    context.buildTree(constraint: constraint, exclusiveConstraints: exclusiveConstraints)
+    return buildTreeContent(tree: context.tree)
 }
+
 public func _print(constraint: NSLayoutConstraint) {
+    return
     assert(constraint.firstItem != nil)
     print("  ", "constraint: ", constraint)
     print("  ", "constant: ", constraint.constant)
