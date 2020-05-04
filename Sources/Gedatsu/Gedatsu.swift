@@ -3,16 +3,14 @@ import UIKit
 
 private var source: DispatchSourceRead!
 internal class Gedatsu {
-    internal typealias InterceptType = (() -> Void)
-
     private let lock = NSLock()
-    internal var interceptQueue: [InterceptType] = []
-
     internal let reader: Reader
     internal let writer: Writer
-    internal init(reader: Reader, writer: Writer) {
+    internal let interceptor: Interceptor
+    internal init(reader: Reader, writer: Writer, interceptor: Interceptor) {
         self.reader = reader
         self.writer = writer
+        self.interceptor = interceptor
     }
     
     internal func open() {
@@ -22,34 +20,18 @@ internal class Gedatsu {
         source.setEventHandler {
             self.lock.lock()
             defer { self.lock.unlock() }
+            // NOTE: it is necessary to call and dispose read `data` when if not use `data`
             let data = self.reader.read()
-            switch self.interceptQueue.isEmpty {
+            switch self.interceptor.canIntercept() {
             case true:
-                self.writer.write(content: data)
-            case false:
                 DispatchQueue.main.async {
-                    let closure = self.interceptQueue.removeFirst()
-                    closure()
-                    print("self.interceptQueue.count: \(self.interceptQueue.count)")
+                    self.interceptor.intercept()
                 }
+            case false:
+                self.writer.write(content: data)
             }
         }
         source.resume()
-//        reader.read { [weak self] content in
-//            self?.lock.lock()
-//            defer { self?.lock.unlock() }
-//            guard let self = self else {
-//                return
-//            }
-//            print("self.interceptQueue.count: \(self.interceptQueue.count)")
-//            switch (self.interceptQueue.isEmpty, Thread.isMainThread) {
-//            case (true, _), (_, false):
-//                self.writer.write(content: content)
-//            case (false, true):
-//                let closure = self.interceptQueue.removeFirst()
-//                closure()
-//            }
-//        }
     }
 }
 
@@ -61,7 +43,8 @@ public func open() {
     }
     shared = Gedatsu(
         reader: ReaderImpl(),
-        writer: WriterImpl()
+        writer: WriterImpl(),
+        interceptor: InterceptorImpl()
     )
     UIView.swizzle()
     shared?.open()
