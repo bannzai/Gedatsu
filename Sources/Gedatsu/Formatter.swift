@@ -12,9 +12,28 @@ public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
     public func format(context: Context) -> String {
         if let match = context.tree.enumerated().filter({ $0.1.responder is TopLevel }).last {
             let nodes = context.tree[match.offset..<context.tree.count]
-            return buildTreeContent(tree: Array(nodes))
+            context.tree = Array(nodes)
+            return """
+            ⚠️ Gedatsu catch AutoLayout error and details below
+            ===========================================================
+            \(buildHeader(context: context))
+            
+            \(buildTreeContent(context: context))
+            ===========================================================
+            
+            """
         }
-        return "Could not find \(TopLevel.self) in context: \(context.tree)\n" + buildTreeContent(tree: context.tree)
+        return """
+        ⚠️ Gedatsu catch AutoLayout error and details below
+        But could not find \(TopLevel.self) in context: \(context.tree)
+        Please confirm for generics about HierarcyFormatter<T>
+        ===========================================================
+        \(buildHeader(context: context))
+        
+        \(buildTreeContent(context: context))
+        ===========================================================
+        
+        """
     }
 }
 

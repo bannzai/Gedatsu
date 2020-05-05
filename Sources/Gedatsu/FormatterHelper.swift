@@ -25,9 +25,9 @@ private func debugContent(node: Node) -> String {
     }
 }
 
-public func buildTreeContent(tree: [Node]) -> String {
+public func buildTreeContent(context: Context) -> String {
     var content = ""
-    tree.enumerated().forEach { (offset, node) in
+    context.tree.enumerated().forEach { (offset, node) in
         if offset == 0 {
             content += "- " + debugContent(node: node) + "\n"
             return
@@ -39,6 +39,23 @@ public func buildTreeContent(tree: [Node]) -> String {
     return content
 }
 
+public func buildHeader(context: Context) -> String {
+    return context.exclusiveConstraints.compactMap { constraint in
+        let address = String(unsafeBitCast(constraint, to: Int.self), radix: 16, uppercase: false)
+        switch (constraint.firstItem, constraint.secondItem) {
+        case (.none, .none):
+            return "NSLayoutConstraint: \(address) Unknown case"
+        case (.some(let lhs), .some(let rhs)):
+            let (lAttribute, rAttribute) = (constraint.firstAttribute.displayName, constraint.secondAttribute.displayName)
+            let relation = constraint.relation
+            return "NSLayoutConstraint: \(address) \(type(of: lhs)).\(lAttribute) \(relation.displayName) \(type(of: rhs)).\(rAttribute) "
+        case (.some(let item), .none):
+            return "NSLayoutConstraint: \(address) \(type(of: item)).\(constraint.firstAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+        case (.none, .some(let item)):
+            return "NSLayoutConstraint: \(address) \(type(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+        }
+    }.joined(separator: "\n")
+}
 
 extension NSLayoutConstraint.Attribute {
     var displayName: String {
@@ -85,6 +102,20 @@ extension NSLayoutConstraint.Attribute {
             return "centerYWithinMargins"
         case .notAnAttribute:
             return "notAnAttribute"
+        @unknown default:
+            fatalError()
+        }
+    }
+}
+extension NSLayoutConstraint.Relation {
+    var displayName: String {
+        switch self {
+        case .equal:
+            return "=="
+        case .greaterThanOrEqual:
+            return ">="
+        case .lessThanOrEqual:
+            return "<="
         @unknown default:
             fatalError()
         }
