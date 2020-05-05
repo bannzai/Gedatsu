@@ -15,8 +15,8 @@
 		330D4566245DC627008A0AB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D4564245DC627008A0AB4 /* LaunchScreen.storyboard */; };
 		330D4571245DC627008A0AB4 /* GedatsuExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D4570245DC627008A0AB4 /* GedatsuExampleTests.swift */; };
 		330D457C245DC627008A0AB4 /* GedatsuExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D457B245DC627008A0AB4 /* GedatsuExampleUITests.swift */; };
-		338E5AD3245E3E0100A1F1EA /* Gedatsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338E5AD2245E3E0100A1F1EA /* Gedatsu.framework */; };
-		338E5AD4245E3E0100A1F1EA /* Gedatsu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 338E5AD2245E3E0100A1F1EA /* Gedatsu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA5BEF34246104D000CA5444 /* Gedatsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BEF33246104D000CA5444 /* Gedatsu.framework */; };
+		BA5BEF35246104D000CA5444 /* Gedatsu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BEF33246104D000CA5444 /* Gedatsu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		338E5AD5245E3E0100A1F1EA /* Embed Frameworks */ = {
+		BA5BEF36246104D000CA5444 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				338E5AD4245E3E0100A1F1EA /* Gedatsu.framework in Embed Frameworks */,
+				BA5BEF35246104D000CA5444 /* Gedatsu.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +66,7 @@
 		330D457B245DC627008A0AB4 /* GedatsuExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GedatsuExampleUITests.swift; sourceTree = "<group>"; };
 		330D457D245DC627008A0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		338E5AD2245E3E0100A1F1EA /* Gedatsu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5BEF33246104D000CA5444 /* Gedatsu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				338E5AD3245E3E0100A1F1EA /* Gedatsu.framework in Frameworks */,
+				BA5BEF34246104D000CA5444 /* Gedatsu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +151,7 @@
 		338E5AD1245E3E0100A1F1EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA5BEF33246104D000CA5444 /* Gedatsu.framework */,
 				338E5AD2245E3E0100A1F1EA /* Gedatsu.framework */,
 			);
 			name = Frameworks;
@@ -165,7 +167,7 @@
 				330D4552245DC625008A0AB4 /* Sources */,
 				330D4553245DC625008A0AB4 /* Frameworks */,
 				330D4554245DC625008A0AB4 /* Resources */,
-				338E5AD5245E3E0100A1F1EA /* Embed Frameworks */,
+				BA5BEF36246104D000CA5444 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
