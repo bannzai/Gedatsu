@@ -11,12 +11,12 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GedatsuExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3s-oM-guD" customClass="CustomView" customModule="GedatsuExample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3s-oM-guD" customClass="CustomView" customModule="GedatsuExample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="434" height="838"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="FRg-Vh-syi"/>
@@ -25,8 +25,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="X3s-oM-guD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="20" id="1J5-h7-avo"/>
+                            <constraint firstItem="X3s-oM-guD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GuJ-0V-835"/>
                             <constraint firstItem="X3s-oM-guD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MG4-57-wH2"/>
+                            <constraint firstItem="X3s-oM-guD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MXK-aG-Vq7"/>
                             <constraint firstItem="X3s-oM-guD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SCJ-xt-SKs"/>
+                            <constraint firstItem="X3s-oM-guD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="20" id="gjn-vR-cIG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X3s-oM-guD" secondAttribute="bottom" id="h0g-LS-PZM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X3s-oM-guD" secondAttribute="trailing" id="ttv-Ew-9Av"/>
                         </constraints>
