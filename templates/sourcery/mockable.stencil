@@ -69,7 +69,6 @@ import AppKit
     }
 {% else %}
     func {{ method.name }}{% if method.throws %} throws{% endif %}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
-        methodCalledStack.append("{{ method.selectorName }}")
         {% if method.throws %}
         {% call methodThrowableErrorUsage method %}
         {% endif %}
@@ -106,8 +105,6 @@ import AppKit
 
 {% for type in types.protocols where type.based.AutoMockable or type %}
 class {{ type.name }}Mock: {% if type.accessLevel == "public" %}Gedatsu.{% endif %}{{ type.name }} {
-    var methodCalledStack: [String] = []
-
 {% for variable in type.allVariables|!definedInExtension %}
     {% if variable.isOptional %}
     {% call mockOptionalVariable variable %}
