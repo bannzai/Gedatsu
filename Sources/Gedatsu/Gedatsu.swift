@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 
-private var source: DispatchSourceRead!
 internal class Worker {
     private let lock = NSLock()
     internal let reader: Reader
@@ -13,6 +12,7 @@ internal class Worker {
         self.interceptor = interceptor
     }
     
+    private var source: DispatchSourceRead!
     internal func open() {
         _ = dup2(FileHandle.standardError.fileDescriptor, writer.writingFileDescriptor)
         _ = dup2(reader.writingFileDescriptor, STDERR_FILENO)
