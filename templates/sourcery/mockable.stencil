@@ -8,6 +8,8 @@ import UIKit
 import AppKit
 #endif
 
+@testable import Gedatsu
+
 {% macro swiftifyMethodName name %}{{ name | replace:"(","_" | replace:")","" | replace:":","_" | replace:"`","" | snakeToCamelCase | lowerFirstWord }}{% endmacro %}
 
 {% macro methodThrowableErrorDeclaration method %}
@@ -103,7 +105,7 @@ import AppKit
 {% macro mockedVariableName variable %}{{ variable.name }}{% endmacro %}
 
 {% for type in types.protocols where type.based.AutoMockable or type %}
-class {{ type.name }}Mock: {{ type.name }} {
+class {{ type.name }}Mock: {% if type.accessLevel == "public" %}Gedatsu.{% endif %}{{ type.name }} {
     var methodCalledStack: [String] = []
 
 {% for variable in type.allVariables|!definedInExtension %}

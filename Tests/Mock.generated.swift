@@ -12,6 +12,7 @@ import UIKit
 import AppKit
 #endif
 
+@testable import Gedatsu
 
 
 
@@ -24,7 +25,8 @@ import AppKit
 
 
 
-class FormatterMock: Formatter {
+
+class FormatterMock: Gedatsu.Formatter {
     var methodCalledStack: [String] = []
 
 
