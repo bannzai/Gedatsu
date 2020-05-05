@@ -5,7 +5,6 @@ public func buildTreeContent(context: Context) -> String {
     context.tree.enumerated().forEach { (offset, node) in
         if offset == 0 {
             content += "- " + debugContent(node: node) + "\n"
-            return
         }
         node.children.forEach { child in
             content += space(level: offset) + "|- " + debugContent(node: child) + "\n"
