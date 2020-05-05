@@ -27,8 +27,6 @@ import AppKit
 
 
 class FormatterMock: Gedatsu.Formatter {
-    var methodCalledStack: [String] = []
-
 
     //MARK: - format
 
@@ -41,7 +39,6 @@ class FormatterMock: Gedatsu.Formatter {
     var formatContextClosure: ((Context) -> String)?
 
     func format(context: Context) -> String {
-        methodCalledStack.append("format(context:)")
         formatContextCallsCount += 1
         formatContextReceivedContext = context
         return formatContextClosure.map({ $0(context) }) ?? formatContextReturnValue
@@ -49,8 +46,6 @@ class FormatterMock: Gedatsu.Formatter {
 
 }
 class InterceptorMock: Interceptor {
-    var methodCalledStack: [String] = []
-
 
     //MARK: - save
 
@@ -62,7 +57,6 @@ class InterceptorMock: Interceptor {
     var saveClosureClosure: ((@escaping () -> Void) -> Void)?
 
     func save(closure: @escaping () -> Void) {
-        methodCalledStack.append("save(closure:)")
         saveClosureCallsCount += 1
         saveClosureReceivedClosure = closure
         saveClosureClosure?(closure)
@@ -78,7 +72,6 @@ class InterceptorMock: Interceptor {
     var canInterceptClosure: (() -> Bool)?
 
     func canIntercept() -> Bool {
-        methodCalledStack.append("canIntercept")
         canInterceptCallsCount += 1
         return canInterceptClosure.map({ $0() }) ?? canInterceptReturnValue
     }
@@ -92,15 +85,12 @@ class InterceptorMock: Interceptor {
     var interceptClosure: (() -> Void)?
 
     func intercept() {
-        methodCalledStack.append("intercept")
         interceptCallsCount += 1
         interceptClosure?()
     }
 
 }
 class ReaderMock: Reader {
-    var methodCalledStack: [String] = []
-
     var readingFileDescriptor: Int32 {
         get { return underlyingReadingFileDescriptor }
         set(value) { underlyingReadingFileDescriptor = value }
@@ -122,15 +112,12 @@ class ReaderMock: Reader {
     var readClosure: (() -> Data)?
 
     func read() -> Data {
-        methodCalledStack.append("read")
         readCallsCount += 1
         return readClosure.map({ $0() }) ?? readReturnValue
     }
 
 }
 class ViewMock: View {
-    var methodCalledStack: [String] = []
-
 
     //MARK: - view
 
@@ -142,15 +129,12 @@ class ViewMock: View {
     var viewClosure: (() -> UIView?)?
 
     func view() -> UIView? {
-        methodCalledStack.append("view")
         viewCallsCount += 1
         return viewClosure.map({ $0() }) ?? viewReturnValue
     }
 
 }
 class WriterMock: Writer {
-    var methodCalledStack: [String] = []
-
     var writingFileDescriptor: Int32 {
         get { return underlyingWritingFileDescriptor }
         set(value) { underlyingWritingFileDescriptor = value }
@@ -167,7 +151,6 @@ class WriterMock: Writer {
     var writeContentClosure: ((Data) -> Void)?
 
     func write(content: Data) {
-        methodCalledStack.append("write(content:)")
         writeContentCallsCount += 1
         writeContentReceivedContent = content
         writeContentClosure?(content)

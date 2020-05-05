@@ -14,7 +14,7 @@ build: schema
 
 .PHONY: sourcery
 sourcery: 
-	sourcery --sources ./Sources/Gedatsu --templates ./templates/sourcery/mockable.stencil  --output ./Tests/Mock.generated.swift 
+	sourcery --sources ./Sources/Gedatsu --templates ./templates/sourcery/mockable.stencil  --output ./Tests/GedatsuTests/Mock.generated.swift 
 
 .PHONY: test
 test: schema sourcery
