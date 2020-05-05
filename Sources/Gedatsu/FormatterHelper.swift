@@ -39,6 +39,12 @@ public func buildTreeContent(context: Context) -> String {
     return content
 }
 
+private func itemType(of item: AnyObject) -> String {
+    if let guide = item as? UILayoutGuide, let view = guide.view() {
+        return "\(type(of: guide)).\(type(of: view))"
+    }
+    return "\(type(of: item))"
+}
 public func buildHeader(context: Context) -> String {
     return context.exclusiveConstraints.compactMap { constraint in
         let address = String(unsafeBitCast(constraint, to: Int.self), radix: 16, uppercase: false)
@@ -48,11 +54,11 @@ public func buildHeader(context: Context) -> String {
         case (.some(let lhs), .some(let rhs)):
             let (lAttribute, rAttribute) = (constraint.firstAttribute.displayName, constraint.secondAttribute.displayName)
             let relation = constraint.relation
-            return "NSLayoutConstraint: \(address) \(type(of: lhs)).\(lAttribute) \(relation.displayName) \(type(of: rhs)).\(rAttribute) "
+            return "NSLayoutConstraint: \(address) \(itemType(of: lhs)).\(lAttribute) \(relation.displayName) \(itemType(of: rhs)).\(rAttribute) "
         case (.some(let item), .none):
-            return "NSLayoutConstraint: \(address) \(type(of: item)).\(constraint.firstAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.firstAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
         case (.none, .some(let item)):
-            return "NSLayoutConstraint: \(address) \(type(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
         }
     }.joined(separator: "\n")
 }
