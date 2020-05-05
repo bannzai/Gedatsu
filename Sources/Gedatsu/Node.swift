@@ -66,7 +66,7 @@ public class Context {
         return ancestors.reversed()
     }
     
-    internal func buildTree(constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+    internal func buildTree() {
         let ambigiousConstraintNodes = exclusiveConstraints
             .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }

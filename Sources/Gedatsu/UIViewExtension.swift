@@ -24,7 +24,7 @@ extension UIView {
             return
         }
         let context = Context(view: self, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
-        context.buildTree(constraint: constraint, exclusiveConstraints: exclusiveConstraints)
+        context.buildTree()
         shared?.interceptor.save {
             print(format(context: context))
         }
