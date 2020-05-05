@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 private var source: DispatchSourceRead!
-internal class Gedatsu {
+internal class Worker {
     private let lock = NSLock()
     internal let reader: Reader
     internal let writer: Writer
@@ -35,13 +35,13 @@ internal class Gedatsu {
     }
 }
 
-internal var shared: Gedatsu?
+internal var shared: Worker?
 
 public func open() {
     if shared != nil {
         return
     }
-    shared = Gedatsu(
+    shared = Worker(
         reader: ReaderImpl(),
         writer: WriterImpl(),
         interceptor: InterceptorImpl()
