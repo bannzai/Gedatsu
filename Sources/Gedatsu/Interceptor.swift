@@ -23,6 +23,5 @@ internal class InterceptorImpl: Interceptor {
         }
         let closure = queue.removeFirst()
         closure()
-        print("self.interceptQueue.count: \(self.queue.count)")
     }
 }
