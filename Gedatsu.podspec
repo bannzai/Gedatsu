@@ -86,7 +86,7 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/bannzai/Gedatsu.git", :commit => "47754a83863dbfbadbed77679d7a4c18be80e9b3" }
+  spec.source       = { :git => "https://github.com/bannzai/Gedatsu.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -140,4 +140,6 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
 
+  s.ios.deployment_target     = '11.0'
+  s.swift_version = '5.2'
 end
