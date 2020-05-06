@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Gedatsu"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "Gedatsu provide readable foramt about AutoLayout error console log"
 
   # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
 
 | Original |  Gedatsu  |
 | ---- | ---- |
-|  <img width="100%" src="docs/autolayout.png" />  |  <img width="100%" src="docs/gedatsu.png" />  |
+|  <img width="100%" src="https://github.com/bannzai/Gedatsu/blob/master/docs/autolayout.png" />  |  <img width="100%" src="https://github.com/bannzai/Gedatsu/blob/master/docs/gedatsu.png" />  |
 
                    DESC
 
