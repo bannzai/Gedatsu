@@ -6,7 +6,7 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
 
 | Original |  Gedatsu  |
 | ---- | ---- |
-|  <img width="100%" src="docs/autolayout.png" />  |  <img width="100%" src="docs/gedatsu.png" />  |
+|  <img width="100%" src="https://github.com/bannzai/Gedatsu/blob/master/docs/autolayout.png" />  |  <img width="100%" src="https://github.com/bannzai/Gedatsu/blob/master/docs/gedatsu.png" />  |
 
 ## Install
 ### Cocoapods
