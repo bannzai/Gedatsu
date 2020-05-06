@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "Gedatsu"
   spec.version      = "0.0.1"
-  spec.summary      = "Gedatsu provide beautiful foramt about AutoLayout error console log"
+  spec.summary      = "Gedatsu provide readable foramt about AutoLayout error console log"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,13 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-Gedatsu provide beautiful foramt about AutoLayout error console log
+Gedatsu provide readable foramt about AutoLayout error console log
+In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambigious constraints.
+
+| Original |  Gedatsu  |
+| ---- | ---- |
+|  <img width="100%" src="docs/autolayout.png" />  |  <img width="100%" src="docs/gedatsu.png" />  |
+
                    DESC
 
   spec.homepage     = "https://github.com/bannzai/Gedatsu"
