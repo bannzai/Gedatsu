@@ -26,7 +26,9 @@ extension UIView {
         let context = Context(view: self, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         context.buildTree()
         shared?.interceptor.save {
-            print(format(context: context))
+            if var shared = shared {
+                Swift.print(format(context: context), to: &shared)
+            }
         }
     }
 }
