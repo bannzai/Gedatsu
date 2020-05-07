@@ -15,6 +15,8 @@
 		330D4566245DC627008A0AB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D4564245DC627008A0AB4 /* LaunchScreen.storyboard */; };
 		330D4571245DC627008A0AB4 /* GedatsuExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D4570245DC627008A0AB4 /* GedatsuExampleTests.swift */; };
 		330D457C245DC627008A0AB4 /* GedatsuExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D457B245DC627008A0AB4 /* GedatsuExampleUITests.swift */; };
+		3353EBFB2464184100AE7EA0 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3353EBF92464184100AE7EA0 /* CollectionViewCell.swift */; };
+		3353EBFC2464184100AE7EA0 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3353EBFA2464184100AE7EA0 /* CollectionViewCell.xib */; };
 		BA5BEF34246104D000CA5444 /* Gedatsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BEF33246104D000CA5444 /* Gedatsu.framework */; };
 		BA5BEF35246104D000CA5444 /* Gedatsu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BEF33246104D000CA5444 /* Gedatsu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		330D4577245DC627008A0AB4 /* GedatsuExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GedatsuExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D457B245DC627008A0AB4 /* GedatsuExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GedatsuExampleUITests.swift; sourceTree = "<group>"; };
 		330D457D245DC627008A0AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3353EBF92464184100AE7EA0 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		3353EBFA2464184100AE7EA0 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		338E5AD2245E3E0100A1F1EA /* Gedatsu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5BEF33246104D000CA5444 /* Gedatsu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +126,8 @@
 				330D4559245DC625008A0AB4 /* AppDelegate.swift */,
 				330D455B245DC625008A0AB4 /* SceneDelegate.swift */,
 				330D455D245DC625008A0AB4 /* ViewController.swift */,
+				3353EBF92464184100AE7EA0 /* CollectionViewCell.swift */,
+				3353EBFA2464184100AE7EA0 /* CollectionViewCell.xib */,
 				330D455F245DC625008A0AB4 /* Main.storyboard */,
 				330D4562245DC627008A0AB4 /* Assets.xcassets */,
 				330D4564245DC627008A0AB4 /* LaunchScreen.storyboard */,
@@ -264,6 +270,7 @@
 			files = (
 				330D4566245DC627008A0AB4 /* LaunchScreen.storyboard in Resources */,
 				330D4563245DC627008A0AB4 /* Assets.xcassets in Resources */,
+				3353EBFC2464184100AE7EA0 /* CollectionViewCell.xib in Resources */,
 				330D4561245DC625008A0AB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +298,7 @@
 			files = (
 				330D455E245DC625008A0AB4 /* ViewController.swift in Sources */,
 				330D455A245DC625008A0AB4 /* AppDelegate.swift in Sources */,
+				3353EBFB2464184100AE7EA0 /* CollectionViewCell.swift in Sources */,
 				330D455C245DC625008A0AB4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
