@@ -1,3 +1,5 @@
+[![Swift 5.2](https://img.shields.io/badge/swift-5.2-ED523F.svg?style=flat)](https://swift.org/download/) [![Cocoapods](https://img.shields.io/cocoapods/v/RxSwift.svg)](https://cocoapods.org/pods/RxSwift) [![Carthage](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+
 # Gedatsu
 Gedatsu provide readable format about AutoLayout error console log
 
