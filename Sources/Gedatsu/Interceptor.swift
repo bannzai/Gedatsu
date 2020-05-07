@@ -18,7 +18,7 @@ internal class InterceptorImpl: Interceptor {
     }
     func intercept() {
         if queue.isEmpty {
-            assertionFailure("unexpected queue is empty")
+            gedatsuAssert(false, "unexpected queue is empty")
             return
         }
         let closure = queue.removeFirst()
