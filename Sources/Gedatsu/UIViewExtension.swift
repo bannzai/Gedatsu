@@ -12,8 +12,8 @@ extension UIView {
         method_exchangeImplementations(from, to)
     }
     @objc internal func _engine(engine: AnyObject, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
-        assert(Thread.isMainThread)
-        assert(NSClassFromString("NSISEngine") == engine.classForCoder, "Unexpected receive argument for NSEngine")
+        gedatsuAssert(Thread.isMainThread)
+        gedatsuAssert(NSClassFromString("NSISEngine") == engine.classForCoder, "Unexpected receive argument for NSEngine")
         defer {
             _engine(engine: engine, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         }

@@ -38,7 +38,7 @@ internal class Worker {
 extension Worker: TextOutputStream {
     func write(_ string: String) {
         let data = string.data(using: .utf8)
-        assert(data != nil)
+        gedatsuAssert(data != nil)
         data.map(writer.write(content:))
     }
 }
