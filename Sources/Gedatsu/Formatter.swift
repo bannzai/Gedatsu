@@ -5,7 +5,7 @@ public protocol Formatter {
     func format(context: Context) -> String
 }
 
-public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
+public struct HierarchyFormatter<TopLevel: UIResponder>: Formatter {
     public init() {
         
     }
@@ -26,7 +26,7 @@ public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
         return """
         ⚠️ Gedatsu catch AutoLayout error and details below
         But could not find \(TopLevel.self) in context: \(context.tree)
-        Please confirm for generics about HierarcyFormatter<T>
+        Please confirm for generics about HierarchyFormatter<T>
         ===========================================================
         \(buildHeader(context: context))
         
@@ -37,7 +37,7 @@ public struct HierarcyFormatter<TopLevel: UIResponder>: Formatter {
     }
 }
 
-public var defaultFormatter: Formatter = HierarcyFormatter<UIWindow>()
+public var defaultFormatter: Formatter = HierarchyFormatter<UIWindow>()
 
 internal func format(context: Context) -> String {
     return defaultFormatter.format(context: context)
