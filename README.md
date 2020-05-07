@@ -12,7 +12,7 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
 ### Cocoapods
 Add the line below to Podfile and to exec `$ pod install`.
 ```ruby
-pod 'Gedatsu' configuration: %w(Debug)
+pod 'Gedatsu', configuration: %w(Debug)
 ```
 
 ### Swift Package Manager
