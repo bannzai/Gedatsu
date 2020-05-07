@@ -470,6 +470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG_GEDATSU";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -487,6 +488,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-DDEBUG_GEDATSU";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
