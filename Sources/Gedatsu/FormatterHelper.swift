@@ -14,10 +14,10 @@ func debugContent(node: Node) -> String {
     if let label = node.responder.accessibilityLabel {
         return "\(label): \(addres(of: node.responder))"
     }
-    switch node.hasAmbigious {
+    switch node.hasAmbiguous {
     case true:
         let attributes = node.attributes.map { "\($0.displayName)" }.joined(separator: ", ")
-        return "❌ \(type(of: node.responder)): \(addres(of: node.responder)), ambigious attributes: \(attributes)"
+        return "❌ \(type(of: node.responder)): \(addres(of: node.responder)), ambiguous attributes: \(attributes)"
     case false:
         return "\(type(of: node.responder)): \(addres(of: node.responder))"
     }

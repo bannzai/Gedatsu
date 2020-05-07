@@ -18,7 +18,7 @@ public class Node {
         self.attributes = [attribute]
     }
     
-    var hasAmbigious: Bool {
+    var hasAmbiguous: Bool {
         !attributes.isEmpty
     }
     
@@ -67,12 +67,12 @@ public class Context {
     }
     
     internal func buildTree() {
-        let ambigiousConstraintNodes = exclusiveConstraints
+        let ambiguousConstraintNodes = exclusiveConstraints
             .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }
         
         var mergedNodes: [Node] = []
-        mergeNode: for node in ambigiousConstraintNodes {
+        mergeNode: for node in ambiguousConstraintNodes {
             switch mergedNodes.last(where: { $0.responder === node.responder }) {
             case nil:
                 mergedNodes.append(node)

@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
 Gedatsu provide readable foramt about AutoLayout error console log
-In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambigious constraints.
+In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambiguous constraints.
 
 | Original |  Gedatsu  |
 | ---- | ---- |

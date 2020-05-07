@@ -2,7 +2,7 @@
 Gedatsu provide readable format about AutoLayout error console log
 
 ## Abstract
-In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambigious constraints.
+In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambiguous constraints.
 
 | Original |  Gedatsu  |
 | ---- | ---- |
