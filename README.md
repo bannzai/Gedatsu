@@ -24,6 +24,10 @@ Gedatsu will start when after call `Gedatsu.open`.
 As an good example, call `Gedatsu.open` when `AppDelegate.application:didFinishLaunchingWithOptions:`.
 
 ```swift
+#if DEBUG
+import Gedatsu
+#endif
+
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     #if DEBUG
     Gedatsu.open()
