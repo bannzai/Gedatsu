@@ -25,7 +25,9 @@ As an good example, call `Gedatsu.open` when `AppDelegate.application:didFinishL
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    #if DEBUG
     Gedatsu.open()
+    #endif
     return true
 }
 ```
