@@ -14,7 +14,7 @@ internal class Worker {
     
     private var source: DispatchSourceRead!
     internal func open() {
-        _ = dup2(FileHandle.standardError.fileDescriptor, writer.writingFileDescriptor)
+        _ = dup2(STDERR_FILENO, writer.writingFileDescriptor)
         _ = dup2(reader.writingFileDescriptor, STDERR_FILENO)
         source = DispatchSource.makeReadSource(fileDescriptor: reader.readingFileDescriptor, queue: .init(label: "com.bannzai.gedatsu"))
         source.setEventHandler {
