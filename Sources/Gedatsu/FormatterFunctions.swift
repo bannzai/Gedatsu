@@ -17,15 +17,15 @@ public func buildHeader(context: Context) -> String {
         let address = addres(of: constraint)
         switch (constraint.firstItem, constraint.secondItem) {
         case (.none, .none):
-            return "NSLayoutConstraint: \(address) Unknown case"
+            return "NSLayoutConstraint: \(address) Unknown case. \(constraint.displayIdentifier)"
         case (.some(let lhs), .some(let rhs)):
             let (lAttribute, rAttribute) = (constraint.firstAttribute.displayName, constraint.secondAttribute.displayName)
             let relation = constraint.relation
-            return "NSLayoutConstraint: \(address) \(itemType(of: lhs)).\(lAttribute) \(relation.displayName) \(itemType(of: rhs)).\(rAttribute) "
+            return "NSLayoutConstraint: \(address) \(itemType(of: lhs)).\(lAttribute) \(relation.displayName) \(itemType(of: rhs)).\(rAttribute) \(constraint.displayIdentifier)"
         case (.some(let item), .none):
-            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.firstAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.firstAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant) \(constraint.displayIdentifier)"
         case (.none, .some(let item)):
-            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant)"
+            return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant) \(constraint.displayIdentifier)"
         }
     }.joined(separator: "\n")
 }

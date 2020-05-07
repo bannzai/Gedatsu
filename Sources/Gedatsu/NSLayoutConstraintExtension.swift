@@ -1,5 +1,14 @@
 import UIKit
 
+internal extension NSLayoutConstraint {
+    var displayIdentifier: String {
+        guard let identifier = identifier else {
+            return ""
+        }
+        return "[\(identifier)]"
+    }
+}
+
 internal extension NSLayoutConstraint.Attribute {
     var displayName: String {
         switch self {
