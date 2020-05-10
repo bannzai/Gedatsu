@@ -16,6 +16,7 @@ internal class Worker {
     internal func open() {
         _ = dup2(STDERR_FILENO, writer.writingFileDescriptor)
         _ = dup2(reader.writingFileDescriptor, STDERR_FILENO)
+        print(FileHandle.standardError.fileDescriptor)
         source = DispatchSource.makeReadSource(fileDescriptor: reader.readingFileDescriptor, queue: .init(label: "com.bannzai.gedatsu"))
         source.setEventHandler {
             self.lock.lock()
