@@ -24,12 +24,12 @@ let package = Package(
         .target(
             name: "Gedatsu",
             dependencies: [],
-            swiftSettings: [.define("-DDEBUG_GEDATSU")]
+            swiftSettings: [.define("DEBUG_GEDATSU")]
         ),
         .testTarget(
             name: "GedatsuTests",
             dependencies: ["Gedatsu"],
-            swiftSettings: [.define("-DDEBUG_GEDATSU")]
+            swiftSettings: [.define("DEBUG_GEDATSU")]
         )
     ]
 )
