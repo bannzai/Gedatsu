@@ -23,3 +23,15 @@ test: schema sourcery
 .PHONY: schema
 schema: install
 	mv Gedatsu.xcodeproj/xcshareddata/xcschemes/Gedatsu-Package.xcscheme Gedatsu.xcodeproj/xcshareddata/xcschemes/Gedatsu.xcscheme
+
+.PHONY: release
+release:
+	$(eval CURRENT=$(shell git describe --tags --abbrev=0))
+	$(eval NEXT=$(shell git describe --tags --abbrev=0 | awk -F. '{$$NF+=1; OFS="."; print $0}'))
+	rm -rf Gedatsu.xcodeproj
+	swift package generate-xcodeproj
+	make scheme
+	sed -i '' -e 's/$(CURRENT)/$(NEXT)/g' Gedatsu.podspec
+	git tag $(NEXT)
+	git push origin --tags
+	pod trunk push Gedatsu.podspec --allow-warnings
