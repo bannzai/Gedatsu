@@ -38,5 +38,14 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
+## Support Versions
+|  platform  |  version  |
+| ---- | ---- |
+|  iOS  |  >= 11.0  |  
+|  Swift  |  >= 5.2  | 
+
+
+
+
 ## LICENSE
 Gedatsu is released under the MIT license. See LICENSE for details.
