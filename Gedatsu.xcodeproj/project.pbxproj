@@ -24,6 +24,7 @@
 		BAD8CBD324616E71007F1FB0 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD224616E71007F1FB0 /* FormatTests.swift */; };
 		BAD8CBD524616F51007F1FB0 /* NSLayoutConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD424616F51007F1FB0 /* NSLayoutConstraintExtension.swift */; };
 		BAD8CBD724616FED007F1FB0 /* FormatterFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */; };
+		DBF78D6B246ACBC500E19F86 /* Assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF78D6A246ACBC500E19F86 /* Assert.swift */; };
 		OBJ_35 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Formatter.swift */; };
 		OBJ_36 /* FormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* FormatterHelper.swift */; };
 		OBJ_37 /* Gedatsu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Gedatsu.swift */; };
@@ -61,6 +62,7 @@
 		BAD8CBD224616E71007F1FB0 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
 		BAD8CBD424616F51007F1FB0 /* NSLayoutConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtension.swift; sourceTree = "<group>"; };
 		BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterFunctions.swift; sourceTree = "<group>"; };
+		DBF78D6A246ACBC500E19F86 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 		"Gedatsu::Gedatsu::Product" /* Gedatsu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Gedatsu::GedatsuTests::Product" /* GedatsuTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = GedatsuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* FormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterHelper.swift; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -142,7 +144,6 @@
 				OBJ_28 /* Makefile */,
 				OBJ_29 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -156,6 +157,7 @@
 		OBJ_8 /* Gedatsu */ = {
 			isa = PBXGroup;
 			children = (
+				DBF78D6A246ACBC500E19F86 /* Assert.swift */,
 				OBJ_9 /* Formatter.swift */,
 				OBJ_10 /* FormatterHelper.swift */,
 				BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */,
@@ -238,7 +240,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,6 +263,7 @@
 				OBJ_37 /* Gedatsu.swift in Sources */,
 				OBJ_38 /* Interceptor.swift in Sources */,
 				OBJ_39 /* Node.swift in Sources */,
+				DBF78D6B246ACBC500E19F86 /* Assert.swift in Sources */,
 				OBJ_40 /* Reader.swift in Sources */,
 				OBJ_41 /* UIViewExtension.swift in Sources */,
 				OBJ_42 /* View.swift in Sources */,
