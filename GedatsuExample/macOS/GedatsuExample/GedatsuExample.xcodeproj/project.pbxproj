@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		333EB959246B6EA100A7CDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333EB958246B6EA100A7CDE4 /* AppDelegate.swift */; };
+		333EB95B246B6EA100A7CDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333EB95A246B6EA100A7CDE4 /* ViewController.swift */; };
+		333EB95D246B6EA300A7CDE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333EB95C246B6EA300A7CDE4 /* Assets.xcassets */; };
+		333EB960246B6EA300A7CDE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333EB95E246B6EA300A7CDE4 /* Main.storyboard */; };
+		333EB96C246B6EA400A7CDE4 /* GedatsuExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333EB96B246B6EA400A7CDE4 /* GedatsuExampleTests.swift */; };
+		333EB977246B6EA400A7CDE4 /* GedatsuExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333EB976246B6EA400A7CDE4 /* GedatsuExampleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		333EB968246B6EA400A7CDE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 333EB94D246B6EA100A7CDE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 333EB954246B6EA100A7CDE4;
+			remoteInfo = GedatsuExample;
+		};
+		333EB973246B6EA400A7CDE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 333EB94D246B6EA100A7CDE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 333EB954246B6EA100A7CDE4;
+			remoteInfo = GedatsuExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		333EB955246B6EA100A7CDE4 /* GedatsuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GedatsuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		333EB958246B6EA100A7CDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		333EB95A246B6EA100A7CDE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		333EB95C246B6EA300A7CDE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		333EB95F246B6EA300A7CDE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		333EB961246B6EA300A7CDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		333EB962246B6EA300A7CDE4 /* GedatsuExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GedatsuExample.entitlements; sourceTree = "<group>"; };
+		333EB967246B6EA300A7CDE4 /* GedatsuExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GedatsuExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		333EB96B246B6EA400A7CDE4 /* GedatsuExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GedatsuExampleTests.swift; sourceTree = "<group>"; };
+		333EB96D246B6EA400A7CDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		333EB972246B6EA400A7CDE4 /* GedatsuExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GedatsuExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		333EB976246B6EA400A7CDE4 /* GedatsuExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GedatsuExampleUITests.swift; sourceTree = "<group>"; };
+		333EB978246B6EA400A7CDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		333EB952246B6EA100A7CDE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB964246B6EA300A7CDE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB96F246B6EA400A7CDE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		333EB94C246B6EA100A7CDE4 = {
+			isa = PBXGroup;
+			children = (
+				333EB957246B6EA100A7CDE4 /* GedatsuExample */,
+				333EB96A246B6EA400A7CDE4 /* GedatsuExampleTests */,
+				333EB975246B6EA400A7CDE4 /* GedatsuExampleUITests */,
+				333EB956246B6EA100A7CDE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		333EB956246B6EA100A7CDE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				333EB955246B6EA100A7CDE4 /* GedatsuExample.app */,
+				333EB967246B6EA300A7CDE4 /* GedatsuExampleTests.xctest */,
+				333EB972246B6EA400A7CDE4 /* GedatsuExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		333EB957246B6EA100A7CDE4 /* GedatsuExample */ = {
+			isa = PBXGroup;
+			children = (
+				333EB958246B6EA100A7CDE4 /* AppDelegate.swift */,
+				333EB95A246B6EA100A7CDE4 /* ViewController.swift */,
+				333EB95C246B6EA300A7CDE4 /* Assets.xcassets */,
+				333EB95E246B6EA300A7CDE4 /* Main.storyboard */,
+				333EB961246B6EA300A7CDE4 /* Info.plist */,
+				333EB962246B6EA300A7CDE4 /* GedatsuExample.entitlements */,
+			);
+			path = GedatsuExample;
+			sourceTree = "<group>";
+		};
+		333EB96A246B6EA400A7CDE4 /* GedatsuExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				333EB96B246B6EA400A7CDE4 /* GedatsuExampleTests.swift */,
+				333EB96D246B6EA400A7CDE4 /* Info.plist */,
+			);
+			path = GedatsuExampleTests;
+			sourceTree = "<group>";
+		};
+		333EB975246B6EA400A7CDE4 /* GedatsuExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				333EB976246B6EA400A7CDE4 /* GedatsuExampleUITests.swift */,
+				333EB978246B6EA400A7CDE4 /* Info.plist */,
+			);
+			path = GedatsuExampleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		333EB954246B6EA100A7CDE4 /* GedatsuExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333EB97B246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExample" */;
+			buildPhases = (
+				333EB951246B6EA100A7CDE4 /* Sources */,
+				333EB952246B6EA100A7CDE4 /* Frameworks */,
+				333EB953246B6EA100A7CDE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GedatsuExample;
+			productName = GedatsuExample;
+			productReference = 333EB955246B6EA100A7CDE4 /* GedatsuExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		333EB966246B6EA300A7CDE4 /* GedatsuExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333EB97E246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExampleTests" */;
+			buildPhases = (
+				333EB963246B6EA300A7CDE4 /* Sources */,
+				333EB964246B6EA300A7CDE4 /* Frameworks */,
+				333EB965246B6EA300A7CDE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				333EB969246B6EA400A7CDE4 /* PBXTargetDependency */,
+			);
+			name = GedatsuExampleTests;
+			productName = GedatsuExampleTests;
+			productReference = 333EB967246B6EA300A7CDE4 /* GedatsuExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		333EB971246B6EA400A7CDE4 /* GedatsuExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 333EB981246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExampleUITests" */;
+			buildPhases = (
+				333EB96E246B6EA400A7CDE4 /* Sources */,
+				333EB96F246B6EA400A7CDE4 /* Frameworks */,
+				333EB970246B6EA400A7CDE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				333EB974246B6EA400A7CDE4 /* PBXTargetDependency */,
+			);
+			name = GedatsuExampleUITests;
+			productName = GedatsuExampleUITests;
+			productReference = 333EB972246B6EA400A7CDE4 /* GedatsuExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		333EB94D246B6EA100A7CDE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = bannzai;
+				TargetAttributes = {
+					333EB954246B6EA100A7CDE4 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					333EB966246B6EA300A7CDE4 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 333EB954246B6EA100A7CDE4;
+					};
+					333EB971246B6EA400A7CDE4 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 333EB954246B6EA100A7CDE4;
+					};
+				};
+			};
+			buildConfigurationList = 333EB950246B6EA100A7CDE4 /* Build configuration list for PBXProject "GedatsuExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 333EB94C246B6EA100A7CDE4;
+			productRefGroup = 333EB956246B6EA100A7CDE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				333EB954246B6EA100A7CDE4 /* GedatsuExample */,
+				333EB966246B6EA300A7CDE4 /* GedatsuExampleTests */,
+				333EB971246B6EA400A7CDE4 /* GedatsuExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		333EB953246B6EA100A7CDE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333EB95D246B6EA300A7CDE4 /* Assets.xcassets in Resources */,
+				333EB960246B6EA300A7CDE4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB965246B6EA300A7CDE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB970246B6EA400A7CDE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		333EB951246B6EA100A7CDE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333EB95B246B6EA100A7CDE4 /* ViewController.swift in Sources */,
+				333EB959246B6EA100A7CDE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB963246B6EA300A7CDE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333EB96C246B6EA400A7CDE4 /* GedatsuExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		333EB96E246B6EA400A7CDE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				333EB977246B6EA400A7CDE4 /* GedatsuExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		333EB969246B6EA400A7CDE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 333EB954246B6EA100A7CDE4 /* GedatsuExample */;
+			targetProxy = 333EB968246B6EA400A7CDE4 /* PBXContainerItemProxy */;
+		};
+		333EB974246B6EA400A7CDE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 333EB954246B6EA100A7CDE4 /* GedatsuExample */;
+			targetProxy = 333EB973246B6EA400A7CDE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		333EB95E246B6EA300A7CDE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				333EB95F246B6EA300A7CDE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		333EB979246B6EA400A7CDE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		333EB97A246B6EA400A7CDE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		333EB97C246B6EA400A7CDE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GedatsuExample/GedatsuExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		333EB97D246B6EA400A7CDE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GedatsuExample/GedatsuExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		333EB97F246B6EA400A7CDE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GedatsuExample.app/Contents/MacOS/GedatsuExample";
+			};
+			name = Debug;
+		};
+		333EB980246B6EA400A7CDE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GedatsuExample.app/Contents/MacOS/GedatsuExample";
+			};
+			name = Release;
+		};
+		333EB982246B6EA400A7CDE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GedatsuExample;
+			};
+			name = Debug;
+		};
+		333EB983246B6EA400A7CDE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GedatsuExampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bannzai.GedatsuExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = GedatsuExample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		333EB950246B6EA100A7CDE4 /* Build configuration list for PBXProject "GedatsuExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333EB979246B6EA400A7CDE4 /* Debug */,
+				333EB97A246B6EA400A7CDE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333EB97B246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333EB97C246B6EA400A7CDE4 /* Debug */,
+				333EB97D246B6EA400A7CDE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333EB97E246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333EB97F246B6EA400A7CDE4 /* Debug */,
+				333EB980246B6EA400A7CDE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		333EB981246B6EA400A7CDE4 /* Build configuration list for PBXNativeTarget "GedatsuExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				333EB982246B6EA400A7CDE4 /* Debug */,
+				333EB983246B6EA400A7CDE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 333EB94D246B6EA100A7CDE4 /* Project object */;
+}
