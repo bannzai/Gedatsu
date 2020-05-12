@@ -17,6 +17,12 @@ Add the line below to Podfile and to exec `$ pod install`.
 pod 'Gedatsu', configuration: %w(Debug)
 ```
 
+### Carghage
+Add the line below to Podfile and to exec any `$ chargae checkout && carthage build` commands, e.g) `$ carthage bootstrap --platform iOS`.
+```
+github "bannzai/Gedatsu"
+```
+
 ### Swift Package Manager
 Gedatsu supported to install via Swift Package Manager.
 You can add Gedatsu on Xcode GUI. See [document](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app). 
@@ -37,6 +43,15 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
+
+## Support Versions
+|  platform  |  version  |
+| ---- | ---- |
+|  iOS  |  >= 11.0  |  
+|  Swift  |  >= 5.2  | 
+
+
+
 
 ## LICENSE
 Gedatsu is released under the MIT license. See LICENSE for details.
