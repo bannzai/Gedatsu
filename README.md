@@ -18,7 +18,8 @@ pod 'Gedatsu', configuration: %w(Debug)
 ```
 
 ### Carthage
-Add the line below to Cartfile and to exec any `$ carthage checkout && carthage build` commands, e.g) `$ carthage bootstrap --platform iOS`.
+Add the line below to Cartfile and to exec any `$ carthage checkout && carthage build` commands.  
+e.g) `$ carthage bootstrap --platform iOS`.
 ```
 github "bannzai/Gedatsu"
 ```
