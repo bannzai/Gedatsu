@@ -17,8 +17,9 @@ Add the line below to Podfile and to exec `$ pod install`.
 pod 'Gedatsu', configuration: %w(Debug)
 ```
 
-### Carghage
-Add the line below to Podfile and to exec any `$ chargae checkout && carthage build` commands, e.g) `$ carthage bootstrap --platform iOS`.
+### Carthage
+Add the line below to Cartfile and to exec any `$ carthage checkout && carthage build` commands.  
+e.g) `$ carthage bootstrap --platform iOS`.
 ```
 github "bannzai/Gedatsu"
 ```
