@@ -28,9 +28,6 @@ schema: install
 release:
 	$(eval CURRENT=$(shell git describe --tags --abbrev=0))
 	$(eval NEXT=$(shell git describe --tags --abbrev=0 | awk -F. '{$$NF+=1; OFS="."; print $0}'))
-	rm -rf Gedatsu.xcodeproj
-	swift package generate-xcodeproj
-	make schema
 	sed -i '' -e 's/$(CURRENT)/$(NEXT)/g' Gedatsu.podspec
 	git tag $(NEXT)
 	git push origin --tags
