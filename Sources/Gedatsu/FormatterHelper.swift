@@ -8,7 +8,7 @@ func space(level: Int) -> String {
     return indent
 }
 func debugContent(node: Node) -> String {
-    if let identifier = (node.responder as? UIView)?.accessibilityIdentifier {
+    if let identifier = (node.responder as? ViewType)?.accessibilityIdentifier {
         return "\(identifier):\(addres(of: node.responder))"
     }
     if let label = node.responder.accessibilityLabel {

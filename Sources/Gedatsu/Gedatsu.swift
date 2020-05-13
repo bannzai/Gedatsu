@@ -55,6 +55,6 @@ public func open() {
         writer: WriterImpl(),
         interceptor: InterceptorImpl()
     )
-    UIView.swizzle()
+    ViewType.swizzle()
     shared?.open()
 }

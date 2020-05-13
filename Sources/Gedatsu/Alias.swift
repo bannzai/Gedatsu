@@ -3,7 +3,7 @@ import Foundation
 #if os(iOS)
 import UIKit
 public typealias WindowType = UIWindow
-public typealias ViewType = ViewType
+public typealias ViewType = UIView
 public typealias ResponderType = UIResponder
 #elseif os(macOS)
 import AppKit

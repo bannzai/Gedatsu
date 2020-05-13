@@ -25,7 +25,7 @@ final class GedatsuTests: XCTestCase {
             interceptor.canInterceptClosure = { true }
         }
         
-        UIView.swizzle()
+        ViewType.swizzle()
         gedatsu.open()
         
         before: do {
@@ -36,7 +36,7 @@ final class GedatsuTests: XCTestCase {
             XCTAssertFalse(interceptor.interceptCalled)
         }
 
-        let view = UIView(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
+        let view = ViewType(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: 100),
@@ -81,7 +81,7 @@ final class GedatsuTests: XCTestCase {
             interceptor.canInterceptClosure = { false }
         }
         
-        UIView.swizzle()
+        ViewType.swizzle()
         gedatsu.open()
         
         before: do {
@@ -92,7 +92,7 @@ final class GedatsuTests: XCTestCase {
             XCTAssertFalse(interceptor.interceptCalled)
         }
         
-        let view = UIView(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
+        let view = ViewType(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: 100),

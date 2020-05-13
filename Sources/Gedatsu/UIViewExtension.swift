@@ -1,13 +1,13 @@
 import UIKit
 import ObjectiveC
 
-extension UIView {
+extension ViewType {
     internal static func swizzle() {
-        guard let from = class_getInstanceMethod(UIView.classForCoder(), NSSelectorFromString("engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")) else {
-            fatalError("Could not get instance method for UIView.engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")
+        guard let from = class_getInstanceMethod(ViewType.classForCoder(), NSSelectorFromString("engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")) else {
+            fatalError("Could not get instance method for ViewType.engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")
         }
-        guard let to = class_getInstanceMethod(UIView.classForCoder(), #selector(UIView._engine(engine:constraint:exclusiveConstraints:))) else {
-            fatalError("Could not get instance method for UIView.\(#selector(UIView._engine(engine:constraint:exclusiveConstraints:)))")
+        guard let to = class_getInstanceMethod(ViewType.classForCoder(), #selector(ViewType._engine(engine:constraint:exclusiveConstraints:))) else {
+            fatalError("Could not get instance method for ViewType.\(#selector(ViewType._engine(engine:constraint:exclusiveConstraints:)))")
         }
         method_exchangeImplementations(from, to)
     }

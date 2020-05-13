@@ -40,10 +40,10 @@ public class Context {
     public var tree: [Node] = []
     internal var latestNode: Node?
     
-    public let view: UIView
+    public let view: ViewType
     public let constraint: NSLayoutConstraint
     public let exclusiveConstraints: [NSLayoutConstraint]
-    public init(view: UIView, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+    public init(view: ViewType, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
         self.view = view
         self.constraint = constraint
         self.exclusiveConstraints = exclusiveConstraints
