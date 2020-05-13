@@ -11,6 +11,6 @@ func gedatsuAssert(_ condition: Bool, _ message: String = "", ignoreWarnLog: Boo
     if ignoreWarnLog {
         print("[GEDATSU WARNING]: Unexpected behavior about \(message) in \(file):\(line)")
     }
-    Swift.assert(condition, message)
+//    Swift.assert(condition, message)
     #endif
 }
