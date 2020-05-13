@@ -21,12 +21,14 @@ extension ViewType {
         defer {
             _engine(engine: engine, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         }
+        #if os(iOS)
         guard let isLoggingSuspend = value(forKey: "_isUnsatisfiableConstraintsLoggingSuspended") as? Bool else {
             fatalError("Could not get value for _isUnsatisfiableConstraintsLoggingSuspended")
         }
         if isLoggingSuspend {
             return
         }
+        #endif
         let context = Context(view: self, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         context.buildTree()
         shared?.interceptor.save {
