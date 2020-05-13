@@ -37,7 +37,7 @@ public struct HierarchyFormatter<TopLevel: UIResponder>: Formatter {
     }
 }
 
-public var defaultFormatter: Formatter = HierarchyFormatter<UIWindow>()
+public var defaultFormatter: Formatter = HierarchyFormatter<WindowType>()
 
 internal func format(context: Context) -> String {
     return defaultFormatter.format(context: context)
