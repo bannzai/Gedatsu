@@ -25,3 +25,5 @@ class ViewController: NSViewController {
 
 }
 
+
+final class GedatsuView: NSView { }
