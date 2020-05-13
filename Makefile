@@ -6,11 +6,18 @@ iOSSDK?=$(shell xcrun --sdk iphonesimulator --show-sdk-path)
 install:
 	swift package generate-xcodeproj
 
-.PHONY: build
-build: schema
+.PHONY: iOS
+iOS: schema
 	# See also: https://github.com/apple/swift/blob/master/utils/build-script-impl#L504
 	swift build -Xswiftc "-sdk" -Xswiftc $(iOSSDK) -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
-	xcodebuild -workspace GedatsuExample/GedatsuExample.xcworkspace -scheme GedatsuExample -destination 'platform=$(iOSPlatform),name=$(iOSDevice)'
+	xcodebuild -workspace GedatsuExample/iOS/GedatsuExample.xcworkspace -scheme GedatsuExample -destination 'platform=$(iOSPlatform),name=$(iOSDevice)'
+	open GedatsuExample/iOS/GedatsuExample.xcworkspace
+
+.PHONY: macOS
+macOS: schema
+	swift build 
+	xcodebuild -workspace GedatsuExample/macOS/GedatsuExample.xcworkspace -scheme GedatsuExample 
+	open GedatsuExample/macOS/GedatsuExample.xcworkspace
 
 .PHONY: sourcery
 sourcery: 
@@ -19,7 +26,7 @@ sourcery:
 .PHONY: test
 test: schema sourcery
 	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
-	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
+	xcodebuild test -scheme Gedatsu -configuration Debug # macOS
 
 .PHONY: schema
 schema: install
