@@ -30,7 +30,7 @@ You can add Gedatsu on Xcode GUI. See [document](https://developer.apple.com/doc
 
 ## Usage
 Gedatsu will start when after call `Gedatsu.open`.
-As an good example, call `Gedatsu.open` when `AppDelegate.application:didFinishLaunchingWithOptions:`.
+As an good example for iOS project, call `Gedatsu.open` when `AppDelegate.application:didFinishLaunchingWithOptions:`.
 
 ```swift
 #if DEBUG
@@ -49,6 +49,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 |  platform  |  version  |
 | ---- | ---- |
 |  iOS  |  >= 11.0  |  
+|  macOS  |  >= 10.11  |  
 |  Swift  |  >= 5.2  | 
 
 
