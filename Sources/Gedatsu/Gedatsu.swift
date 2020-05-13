@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 internal class Worker {
     private let lock = NSLock()

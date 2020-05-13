@@ -1,5 +1,3 @@
-import UIKit
-
 protocol View {
     func view() -> ViewType?
 }
@@ -13,5 +11,3 @@ extension UILayoutGuide: View {
         owningView
     }
 }
-
-

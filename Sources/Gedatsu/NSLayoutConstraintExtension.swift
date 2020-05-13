@@ -1,4 +1,8 @@
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 internal extension NSLayoutConstraint {
     var displayIdentifier: String {
@@ -36,6 +40,7 @@ internal extension NSLayoutConstraint.Attribute {
             return "lastBaseline"
         case .firstBaseline:
             return "firstBaseline"
+            #if os(iOS)
         case .leftMargin:
             return "leftMargin"
         case .rightMargin:
@@ -52,6 +57,7 @@ internal extension NSLayoutConstraint.Attribute {
             return "centerXWithinMargins"
         case .centerYWithinMargins:
             return "centerYWithinMargins"
+            #endif
         case .notAnAttribute:
             return "notAnAttribute"
         @unknown default:

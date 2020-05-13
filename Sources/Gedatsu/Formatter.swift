@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 public protocol Formatter {
     func format(context: Context) -> String

@@ -1,5 +1,9 @@
-import UIKit
 import ObjectiveC
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 extension ViewType {
     internal static func swizzle() {
