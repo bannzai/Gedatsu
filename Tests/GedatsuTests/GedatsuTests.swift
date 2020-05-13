@@ -11,7 +11,7 @@ import AppKit
 internal extension ViewType {
     func callLayout() {
         needsLayout = true
-        layout()
+        layoutSubtreeIfNeeded()
     }
 }
 #endif
