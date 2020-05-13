@@ -19,6 +19,11 @@ macOS: schema
 	xcodebuild -workspace GedatsuExample/macOS/GedatsuExample.xcworkspace -scheme GedatsuExample 
 	open GedatsuExample/macOS/GedatsuExample.xcworkspace
 
+.PHONY: carthage-project
+carthage-project: install schema
+	rm -rf Gedatsu-Carthage.xcodeproj
+	cp -r Gedatsu.xcodeproj Gedatsu-Carthage.xcodeproj
+ 
 .PHONY: sourcery
 sourcery: 
 	sourcery --sources ./Sources/Gedatsu --templates ./templates/sourcery/mockable.stencil  --output ./Tests/GedatsuTests/Mock.generated.swift 
