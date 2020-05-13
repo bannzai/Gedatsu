@@ -711,6 +711,10 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uq0-8O-9tr" customClass="GedatsuView" customModule="GedatsuExample" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="460" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="BZg-hZ-O7A"/>
+                                    <constraint firstAttribute="width" constant="460" id="btq-kl-r87"/>
+                                </constraints>
                             </customView>
                         </subviews>
                         <constraints>
