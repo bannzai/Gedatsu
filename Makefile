@@ -1,6 +1,6 @@
-PLATFORM?=iOS Simulator
-DEVICE?=iPhone SE (2nd generation)
-SDK?=$(shell xcrun --sdk iphonesimulator --show-sdk-path)
+iOSPlatform?=iOS Simulator
+iOSDevice?=iPhone SE (2nd generation)
+iOSSDK?=$(shell xcrun --sdk iphonesimulator --show-sdk-path)
 
 .PHONY: install
 install:
@@ -9,8 +9,8 @@ install:
 .PHONY: build
 build: schema
 	# See also: https://github.com/apple/swift/blob/master/utils/build-script-impl#L504
-	swift build -Xswiftc "-sdk" -Xswiftc $(SDK) -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
-	xcodebuild -workspace GedatsuExample/GedatsuExample.xcworkspace -scheme GedatsuExample -destination 'platform=$(PLATFORM),name=$(DEVICE)'
+	swift build -Xswiftc "-sdk" -Xswiftc $(iOSSDK) -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
+	xcodebuild -workspace GedatsuExample/GedatsuExample.xcworkspace -scheme GedatsuExample -destination 'platform=$(iOSPlatform),name=$(iOSDevice)'
 
 .PHONY: sourcery
 sourcery: 
@@ -18,7 +18,8 @@ sourcery:
 
 .PHONY: test
 test: schema sourcery
-	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(SDK) -destination "platform=$(PLATFORM),name=$(DEVICE)" 
+	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
+	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
 
 .PHONY: schema
 schema: install
