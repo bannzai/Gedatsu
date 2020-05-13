@@ -7,7 +7,7 @@ public typealias ViewType = UIView
 public typealias ResponderType = UIResponder
 public typealias LayoutGuideType = UILayoutGuide
 internal extension ViewType {
-    var _accessibilityIdentifier: String {
+    var _accessibilityIdentifier: String? {
         accessibilityIdentifier
     }
 }
@@ -24,7 +24,7 @@ internal extension ResponderType {
     }
 }
 internal extension ViewType {
-    var _accessibilityIdentifier: String {
+    var _accessibilityIdentifier: String? {
         accessibilityIdentifier()
     }
 }
