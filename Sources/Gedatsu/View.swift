@@ -6,7 +6,7 @@ extension ViewType: View {
         self
     }
 }
-extension UILayoutGuide: View {
+extension LayoutGuideType: View {
     func view() -> ViewType? {
         owningView
     }
