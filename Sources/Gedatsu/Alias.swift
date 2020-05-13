@@ -17,7 +17,6 @@ public typealias WindowType = NSWindow
 public typealias ViewType = NSView
 public typealias ResponderType = NSResponder
 public typealias LayoutGuideType = NSLayoutGuide
-
 internal extension ResponderType {
     var next: ResponderType? {
         nextResponder
@@ -29,4 +28,3 @@ internal extension ViewType {
     }
 }
 #endif
-
