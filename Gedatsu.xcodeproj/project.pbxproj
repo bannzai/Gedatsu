@@ -66,7 +66,7 @@
 		BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterFunctions.swift; sourceTree = "<group>"; };
 		DBF78D6A246ACBC500E19F86 /* Assert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assert.swift; sourceTree = "<group>"; };
 		"Gedatsu::Gedatsu::Product" /* Gedatsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Gedatsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Gedatsu::GedatsuTests::Product" /* GedatsuTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = GedatsuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Gedatsu::GedatsuTests::Product" /* GedatsuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GedatsuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* FormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterHelper.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Gedatsu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gedatsu.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 				INFOPLIST_FILE = Gedatsu.xcodeproj/GedatsuTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -483,7 +483,7 @@
 				INFOPLIST_FILE = Gedatsu.xcodeproj/GedatsuTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
