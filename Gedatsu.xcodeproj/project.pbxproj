@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		333EB98B246B718800A7CDE4 /* Alias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333EB98A246B718800A7CDE4 /* Alias.swift */; };
 		BAD8CBD324616E71007F1FB0 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD224616E71007F1FB0 /* FormatTests.swift */; };
 		BAD8CBD524616F51007F1FB0 /* NSLayoutConstraintExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD424616F51007F1FB0 /* NSLayoutConstraintExtension.swift */; };
 		BAD8CBD724616FED007F1FB0 /* FormatterFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		333EB98A246B718800A7CDE4 /* Alias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alias.swift; sourceTree = "<group>"; };
 		BAD8CBD224616E71007F1FB0 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
 		BAD8CBD424616F51007F1FB0 /* NSLayoutConstraintExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtension.swift; sourceTree = "<group>"; };
 		BAD8CBD624616FED007F1FB0 /* FormatterFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterFunctions.swift; sourceTree = "<group>"; };
@@ -76,8 +78,6 @@
 		OBJ_20 /* GedatsuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GedatsuTests.swift; sourceTree = "<group>"; };
 		OBJ_21 /* Mock.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
 		OBJ_22 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_26 /* templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = templates; sourceTree = SOURCE_ROOT; };
-		OBJ_27 /* GedatsuExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GedatsuExample; sourceTree = SOURCE_ROOT; };
 		OBJ_28 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		OBJ_29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -139,8 +139,6 @@
 				OBJ_7 /* Sources */,
 				OBJ_18 /* Tests */,
 				OBJ_23 /* Products */,
-				OBJ_26 /* templates */,
-				OBJ_27 /* GedatsuExample */,
 				OBJ_28 /* Makefile */,
 				OBJ_29 /* README.md */,
 			);
@@ -169,6 +167,7 @@
 				OBJ_15 /* UIViewExtension.swift */,
 				OBJ_16 /* View.swift */,
 				OBJ_17 /* Writer.swift */,
+				333EB98A246B718800A7CDE4 /* Alias.swift */,
 			);
 			name = Gedatsu;
 			path = Sources/Gedatsu;
@@ -260,6 +259,7 @@
 			files = (
 				OBJ_35 /* Formatter.swift in Sources */,
 				OBJ_36 /* FormatterHelper.swift in Sources */,
+				333EB98B246B718800A7CDE4 /* Alias.swift in Sources */,
 				OBJ_37 /* Gedatsu.swift in Sources */,
 				OBJ_38 /* Interceptor.swift in Sources */,
 				OBJ_39 /* Node.swift in Sources */,
