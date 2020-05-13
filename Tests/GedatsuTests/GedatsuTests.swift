@@ -1,6 +1,23 @@
+#if os(iOS)
 import UIKit
+internal extension ViewType {
+    func callLayout() {
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
+}
+#elseif os(macOS)
+import AppKit
+internal extension ViewType {
+    func callLayout() {
+        needsLayout = true
+        layout()
+    }
+}
+#endif
 import XCTest
 @testable import Gedatsu
+
 
 final class GedatsuTests: XCTestCase {
     let input = Pipe()
@@ -48,9 +65,8 @@ final class GedatsuTests: XCTestCase {
             expectation.fulfill()
         }
         
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
+        view.callLayout()
+
         XCTWaiter().wait(for: [expectation], timeout: 10)
         
         after: do {
@@ -105,9 +121,8 @@ final class GedatsuTests: XCTestCase {
             expectation.fulfill()
         }
 
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
+        view.callLayout()
+
         XCTWaiter().wait(for: [expectation], timeout: 10)
         
         after: do {
