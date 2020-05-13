@@ -72,7 +72,7 @@ public class Context {
     
     internal func buildTree() {
         let ambiguousConstraintNodes = exclusiveConstraints
-            .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
+            .flatMap { [Node(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }
         
         var mergedNodes: [Node] = []
