@@ -30,8 +30,8 @@ sourcery:
 
 .PHONY: test
 test: schema sourcery
-	xcodebuild test -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
-	xcodebuild test -scheme Gedatsu -configuration Debug # macOS
+	xcodebuild test -project Gedatsu.xcodeproj -scheme Gedatsu -configuration Debug -sdk $(iOSSDK) -destination "platform=$(iOSPlatform),name=$(iOSDevice)" 
+	xcodebuild test -project Gedatsu.xcodeproj -scheme Gedatsu -configuration Debug # macOS
 
 .PHONY: schema
 schema: install
