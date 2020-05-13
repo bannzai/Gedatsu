@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Gedatsu.xcodeproj">
+      location = "group:../../Gedatsu.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:GedatsuExample.xcodeproj">
