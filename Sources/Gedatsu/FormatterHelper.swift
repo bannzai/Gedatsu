@@ -23,7 +23,7 @@ func debugContent(node: Node) -> String {
     }
 }
 func itemType(of item: AnyObject) -> String {
-    if let guide = item as? UILayoutGuide, let view = guide.view() {
+    if let guide = item as? LayoutGuideType, let view = guide.view() {
         return "\(type(of: guide)).\(type(of: view))"
     }
     return "\(type(of: item))"
