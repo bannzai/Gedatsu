@@ -8,12 +8,15 @@ func space(level: Int) -> String {
     return indent
 }
 func debugContent(node: Node) -> String {
-    if let identifier = (node.responder as? ViewType)?.accessibilityIdentifier {
+    if let identifier = (node.responder as? ViewType)?._accessibilityIdentifier {
         return "\(identifier):\(addres(of: node.responder))"
     }
+    #if os(iOS)
+    // FIXME: How to access NSAccessibility.accessibilityLabel then macOS
     if let label = node.responder.accessibilityLabel {
         return "\(label): \(addres(of: node.responder))"
     }
+    #endif
     switch node.hasAmbiguous {
     case true:
         let attributes = node.attributes.map { "\($0.displayName)" }.joined(separator: ", ")
