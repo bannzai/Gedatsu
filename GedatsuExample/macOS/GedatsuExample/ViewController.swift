@@ -1,27 +1,22 @@
-//
-//  ViewController.swift
-//  GedatsuExample
-//
-//  Created by yudai-hirose on 2020/05/13.
-//  Copyright © 2020 bannzai. All rights reserved.
-//
-
 import Cocoa
+import Gedatsu
 
 class ViewController: NSViewController {
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        Gedatsu.open()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
     }
-
 
 }
 
