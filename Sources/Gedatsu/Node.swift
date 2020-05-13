@@ -1,13 +1,17 @@
 import Foundation
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 public class Node {
     public weak var parent: Node?
-    public var responder: UIResponder
+    public var responder: ResponderType
     public var children: [Node] = []
     public var attributes: Set<NSLayoutConstraint.Attribute> = []
     
-    init(responder: UIResponder) {
+    init(responder: ResponderType) {
         self.responder = responder
     }
     init?(anyObject: AnyObject?, attribute: NSLayoutConstraint.Attribute) {
@@ -40,10 +44,10 @@ public class Context {
     public var tree: [Node] = []
     internal var latestNode: Node?
     
-    public let view: UIView
+    public let view: ViewType
     public let constraint: NSLayoutConstraint
     public let exclusiveConstraints: [NSLayoutConstraint]
-    public init(view: UIView, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
+    public init(view: ViewType, constraint: NSLayoutConstraint, exclusiveConstraints: [NSLayoutConstraint]) {
         self.view = view
         self.constraint = constraint
         self.exclusiveConstraints = exclusiveConstraints
@@ -68,7 +72,7 @@ public class Context {
     
     internal func buildTree() {
         let ambiguousConstraintNodes = exclusiveConstraints
-            .flatMap { [Node.init(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node.init(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
+            .flatMap { [Node(anyObject: $0.firstItem, attribute: $0.firstAttribute), Node(anyObject: $0.secondItem, attribute: $0.secondAttribute)] }
             .compactMap { $0 }
         
         var mergedNodes: [Node] = []

@@ -2,8 +2,8 @@ import XCTest
 @testable import Gedatsu
 
 class FormatTests: XCTestCase {
-    final class CustomView: UIView { }
-    final class CustomView2: UIView { }
+    final class CustomView: ViewType { }
+    final class CustomView2: ViewType { }
     
     func testBuildHeader() {
         XCTContext.runActivity(named: "it cause error only firstItem constraint") { _ in

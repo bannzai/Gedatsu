@@ -1,6 +1,23 @@
+#if os(iOS)
 import UIKit
+internal extension ViewType {
+    func callLayout() {
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
+}
+#elseif os(macOS)
+import AppKit
+internal extension ViewType {
+    func callLayout() {
+        needsLayout = true
+        layoutSubtreeIfNeeded()
+    }
+}
+#endif
 import XCTest
 @testable import Gedatsu
+
 
 final class GedatsuTests: XCTestCase {
     let input = Pipe()
@@ -25,7 +42,7 @@ final class GedatsuTests: XCTestCase {
             interceptor.canInterceptClosure = { true }
         }
         
-        UIView.swizzle()
+        ViewType.swizzle()
         gedatsu.open()
         
         before: do {
@@ -36,7 +53,7 @@ final class GedatsuTests: XCTestCase {
             XCTAssertFalse(interceptor.interceptCalled)
         }
 
-        let view = UIView(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
+        let view = ViewType(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: 100),
@@ -48,9 +65,8 @@ final class GedatsuTests: XCTestCase {
             expectation.fulfill()
         }
         
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
+        view.callLayout()
+
         XCTWaiter().wait(for: [expectation], timeout: 10)
         
         after: do {
@@ -81,7 +97,7 @@ final class GedatsuTests: XCTestCase {
             interceptor.canInterceptClosure = { false }
         }
         
-        UIView.swizzle()
+        ViewType.swizzle()
         gedatsu.open()
         
         before: do {
@@ -92,7 +108,7 @@ final class GedatsuTests: XCTestCase {
             XCTAssertFalse(interceptor.interceptCalled)
         }
         
-        let view = UIView(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
+        let view = ViewType(frame: .init(origin: .zero, size: .init(width: 375, height: 667)))
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalToConstant: 100),
@@ -105,9 +121,8 @@ final class GedatsuTests: XCTestCase {
             expectation.fulfill()
         }
 
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
+        view.callLayout()
+
         XCTWaiter().wait(for: [expectation], timeout: 10)
         
         after: do {

@@ -1,13 +1,17 @@
-import UIKit
 import ObjectiveC
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
-extension UIView {
+extension ViewType {
     internal static func swizzle() {
-        guard let from = class_getInstanceMethod(UIView.classForCoder(), NSSelectorFromString("engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")) else {
-            fatalError("Could not get instance method for UIView.engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")
+        guard let from = class_getInstanceMethod(ViewType.classForCoder(), NSSelectorFromString("engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")) else {
+            fatalError("Could not get instance method for ViewType.engine:willBreakConstraint:dueToMutuallyExclusiveConstraints:")
         }
-        guard let to = class_getInstanceMethod(UIView.classForCoder(), #selector(UIView._engine(engine:constraint:exclusiveConstraints:))) else {
-            fatalError("Could not get instance method for UIView.\(#selector(UIView._engine(engine:constraint:exclusiveConstraints:)))")
+        guard let to = class_getInstanceMethod(ViewType.classForCoder(), #selector(ViewType._engine(engine:constraint:exclusiveConstraints:))) else {
+            fatalError("Could not get instance method for ViewType.\(#selector(ViewType._engine(engine:constraint:exclusiveConstraints:)))")
         }
         method_exchangeImplementations(from, to)
     }
@@ -17,12 +21,14 @@ extension UIView {
         defer {
             _engine(engine: engine, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         }
+        #if os(iOS)
         guard let isLoggingSuspend = value(forKey: "_isUnsatisfiableConstraintsLoggingSuspended") as? Bool else {
             fatalError("Could not get value for _isUnsatisfiableConstraintsLoggingSuspended")
         }
         if isLoggingSuspend {
             return
         }
+        #endif
         let context = Context(view: self, constraint: constraint, exclusiveConstraints: exclusiveConstraints)
         context.buildTree()
         shared?.interceptor.save {

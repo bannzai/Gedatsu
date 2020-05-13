@@ -1,11 +1,10 @@
 import Foundation
-import UIKit
 
 public protocol Formatter {
     func format(context: Context) -> String
 }
 
-public struct HierarchyFormatter<TopLevel: UIResponder>: Formatter {
+public struct HierarchyFormatter<TopLevel: ResponderType>: Formatter {
     public init() {
         
     }
@@ -37,7 +36,7 @@ public struct HierarchyFormatter<TopLevel: UIResponder>: Formatter {
     }
 }
 
-public var defaultFormatter: Formatter = HierarchyFormatter<UIWindow>()
+public var defaultFormatter: Formatter = HierarchyFormatter<WindowType>()
 
 internal func format(context: Context) -> String {
     return defaultFormatter.format(context: context)

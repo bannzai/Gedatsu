@@ -1,17 +1,13 @@
-import UIKit
-
 protocol View {
-    func view() -> UIView?
+    func view() -> ViewType?
 }
-extension UIView: View {
-    func view() -> UIView? {
+extension ViewType: View {
+    func view() -> ViewType? {
         self
     }
 }
-extension UILayoutGuide: View {
-    func view() -> UIView? {
+extension LayoutGuideType: View {
+    func view() -> ViewType? {
         owningView
     }
 }
-
-

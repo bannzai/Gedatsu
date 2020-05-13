@@ -125,10 +125,10 @@ class ViewMock: View {
     var viewCalled: Bool {
         return viewCallsCount > 0
     }
-    var viewReturnValue: UIView?
-    var viewClosure: (() -> UIView?)?
+    var viewReturnValue: ViewType?
+    var viewClosure: (() -> ViewType?)?
 
-    func view() -> UIView? {
+    func view() -> ViewType? {
         viewCallsCount += 1
         return viewClosure.map({ $0() }) ?? viewReturnValue
     }
