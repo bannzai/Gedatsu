@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "Gedatsu"
-  spec.version      = "1.0.0"
+  spec.version      = "1.1.0"
   spec.summary      = "Gedatsu provide readable foramt about AutoLayout error console log"
 
   # This description is used to generate tags and improve search results.
