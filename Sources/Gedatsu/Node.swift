@@ -3,11 +3,11 @@ import UIKit
 
 public class Node {
     public weak var parent: Node?
-    public var responder: UIResponder
+    public var responder: ResponderType
     public var children: [Node] = []
     public var attributes: Set<NSLayoutConstraint.Attribute> = []
     
-    init(responder: UIResponder) {
+    init(responder: ResponderType) {
         self.responder = responder
     }
     init?(anyObject: AnyObject?, attribute: NSLayoutConstraint.Attribute) {

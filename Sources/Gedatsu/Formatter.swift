@@ -5,7 +5,7 @@ public protocol Formatter {
     func format(context: Context) -> String
 }
 
-public struct HierarchyFormatter<TopLevel: UIResponder>: Formatter {
+public struct HierarchyFormatter<TopLevel: ResponderType>: Formatter {
     public init() {
         
     }
