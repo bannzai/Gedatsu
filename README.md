@@ -59,3 +59,4 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ## LICENSE
 Gedatsu is released under the MIT license. See LICENSE for details.
+Header logo is released [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed) license. Original design by [noainoue](https://github.com/noainoue).
