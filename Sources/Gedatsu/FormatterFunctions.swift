@@ -14,7 +14,7 @@ public func buildTreeContent(context: Context) -> String {
 }
 public func buildHeader(context: Context) -> String {
     var shouldShowErrorMessage = false
-    let validate: ([HasDisplayName]) -> Bool = { $0.allSatisfy(\.isValid) }
+    let validate: ([HasDisplayName]) -> Bool = { !$0.allSatisfy(\.isValid) }
     let content = context.exclusiveConstraints.compactMap { constraint in
         let address = addres(of: constraint)
         switch (constraint.firstItem, constraint.secondItem) {
