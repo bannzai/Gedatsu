@@ -13,7 +13,24 @@ internal extension NSLayoutConstraint {
     }
 }
 
-internal extension NSLayoutConstraint.Attribute {
+internal protocol HasDisplayName {
+    var isValid: Bool { get }
+    var displayName: String { get }
+}
+
+extension NSLayoutConstraint.Attribute: HasDisplayName {
+    var isValid: Bool {
+        switch self {
+        case .left, .right, .top, .bottom, .leading, .trailing, .width, .height, .centerX, .centerY, .lastBaseline, .firstBaseline, .notAnAttribute:
+            return true
+            #if os(iOS)
+        case .leftMargin, .rightMargin, .topMargin, .bottomMargin, .leadingMargin, .trailingMargin, .centerXWithinMargins, .centerYWithinMargins:
+            return true
+            #endif
+        @unknown default:
+            return false
+        }
+    }
     var displayName: String {
         switch self {
         case .left:
@@ -61,11 +78,23 @@ internal extension NSLayoutConstraint.Attribute {
         case .notAnAttribute:
             return "notAnAttribute"
         @unknown default:
-            fatalError()
+            return "⚠️️️️⚠️️️️⚠️️️️ Unknown Attribute case for rawValue == \(rawValue) ⚠️️️️⚠️️️️⚠️️️️ "
         }
     }
 }
-internal extension NSLayoutConstraint.Relation {
+extension NSLayoutConstraint.Relation: HasDisplayName {
+    var isValid: Bool {
+        switch self {
+        case .equal:
+            return true
+        case .greaterThanOrEqual:
+            return true
+        case .lessThanOrEqual:
+            return true
+        @unknown default:
+            return false
+        }
+    }
     var displayName: String {
         switch self {
         case .equal:
@@ -75,7 +104,7 @@ internal extension NSLayoutConstraint.Relation {
         case .lessThanOrEqual:
             return "<="
         @unknown default:
-            fatalError()
+            return "⚠️️️️⚠️️️️⚠️️️️ Unknown Relation case for rawValue == \(rawValue) ⚠️️️️⚠️️️️⚠️️️️ "
         }
     }
 }
