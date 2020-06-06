@@ -12,7 +12,7 @@ public func buildTreeContent(context: Context) -> String {
     }
     return content
 }
-public func buildHeader(context: Context) -> (String, Bool) {
+public func buildHeader(context: Context) -> String {
     var shouldShowErrorMessage = false
     let validate: ([HasDisplayName]) -> Bool = { $0.allSatisfy(\.isValid) }
     let content = context.exclusiveConstraints.compactMap { constraint in
@@ -33,5 +33,12 @@ public func buildHeader(context: Context) -> (String, Bool) {
             return "NSLayoutConstraint: \(address) \(itemType(of: item)).\(constraint.secondAttribute.displayName) \(constraint.relation.displayName) \(constraint.constant) \(constraint.displayIdentifier)"
         }
     }.joined(separator: "\n")
-    return (content, shouldShowErrorMessage)
+    if shouldShowErrorMessage {
+        return """
+        Gedatsu catch unknown attribute or relation pattern. See issues for a solution to this problem. If that doesn't solve, please create a new issue."
+        https://github.com/bannzai/gedatsu/issues
+        \(content)
+        """
+    }
+    return content
 }
