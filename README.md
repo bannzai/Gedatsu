@@ -6,7 +6,7 @@
 Gedatsu provide readable format about AutoLayout error console log
 
 ## Abstract
-In runtime Gedatsu hooking console log and format it to human readable about AutoLayout ambiguous constraints.
+At runtime Gedatsu hooks console log and formats it to human readable about AutoLayout ambiguous constraints.
 
 | Original |  Gedatsu  |
 | ---- | ---- |
@@ -14,20 +14,20 @@ In runtime Gedatsu hooking console log and format it to human readable about Aut
 
 ## Install
 ### Cocoapods
-Add the line below to Podfile and to exec `$ pod install`.
+Add the line below to Podfile and execute `$ pod install`.
 ```ruby
 pod 'Gedatsu', configuration: %w(Debug)
 ```
 
 ### Carthage
-Add the line below to Cartfile and to exec any `$ carthage checkout && carthage build` commands.  
-e.g) `$ carthage bootstrap --platform iOS`.
+Add the line below to Cartfile and execute any `$ carthage checkout && carthage build` commands.  
+e.g.) `$ carthage bootstrap --platform iOS`.
 ```
 github "bannzai/Gedatsu"
 ```
 
 ### Swift Package Manager
-Gedatsu supported to install via Swift Package Manager.
+Gedatsu supports to install via Swift Package Manager.
 You can add Gedatsu on Xcode GUI. See [document](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app). 
 
 ## Usage
